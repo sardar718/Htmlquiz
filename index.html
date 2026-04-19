@@ -3,256 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML Quiz</title>
+<title>HTML Mastery Quiz — 300 Questions</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inconsolata:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:      #0D0D0D;
-  --paper:    #F4F1EB;
-  --card:     #FDFCF9;
-  --rule:     #E2DDD4;
-  --muted:    #9C9488;
-  --navy:     #0F2341;
-  --gold:     #C49A2B;
-  --gold-lt:  #F5E9C6;
-  --green:    #1B5E38;
-  --green-lt: #E8F5EE;
-  --green-bd: #8DC9A6;
-  --red:      #6E1515;
-  --red-lt:   #FBF0F0;
-  --red-bd:   #E0A0A0;
-  --mono: 'Inconsolata', monospace;
-  --serif: 'Lora', serif;
-  --display: 'Syne', sans-serif;
+  --ink:#0D0D0D; --paper:#F4F1EB; --card:#FDFCF9; --rule:#E2DDD4; --muted:#9C9488;
+  --navy:#0F2341; --gold:#C49A2B; --gold-lt:#F5E9C6;
+  --green:#1B5E38; --green-lt:#E8F5EE; --green-bd:#8DC9A6;
+  --red:#6E1515; --red-lt:#FBF0F0; --red-bd:#E0A0A0;
+  --orange:#B85C00; --orange-lt:#FFF3E8; --orange-bd:#F0BB88;
+  --mono:'Inconsolata',monospace; --serif:'Lora',serif; --display:'Syne',sans-serif;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--display);
-  background: var(--paper);
-  color: var(--ink);
-  min-height: 100vh;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--display);background:var(--paper);color:var(--ink);min-height:100vh;}
 
 /* HEADER */
-.site-header {
-  background: var(--navy);
-  position: relative;
-  overflow: hidden;
-  padding: 36px 48px 32px;
-}
-.site-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.025) 60px, rgba(255,255,255,0.025) 61px),
-    repeating-linear-gradient(0deg,  transparent, transparent 60px, rgba(255,255,255,0.025) 60px, rgba(255,255,255,0.025) 61px);
-}
-.header-inner { position: relative; z-index: 1; }
-.header-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold); color: var(--navy);
-  font-family: var(--mono); font-size: 10px; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 4px 12px; border-radius: 2px; margin-bottom: 14px;
-}
-.header-badge::before { content:''; width:6px; height:6px; background:var(--navy); border-radius:50%; }
-.site-header h1 {
-  font-family: var(--display); font-size: clamp(26px,5vw,42px);
-  font-weight: 800; color: #fff; line-height: 1.1;
-  letter-spacing: -0.02em; margin-bottom: 10px;
-}
-.site-header h1 span { color: var(--gold); }
-.header-meta {
-  font-family: var(--mono); font-size: 12px;
-  color: rgba(255,255,255,0.4); display: flex; gap: 20px; flex-wrap: wrap;
-}
-.header-meta span::before { content: '/ '; opacity: 0.4; }
-.header-meta span:first-child::before { content: ''; }
+.site-header{background:var(--navy);position:relative;overflow:hidden;padding:28px 40px 24px;}
+.site-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,0.02) 60px,rgba(255,255,255,0.02) 61px),repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,0.02) 60px,rgba(255,255,255,0.02) 61px);}
+.header-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.header-left{}
+.header-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+.site-header h1{font-family:var(--display);font-size:clamp(22px,4vw,36px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.02em;}
+.site-header h1 span{color:var(--gold);}
+.header-meta{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.35);margin-top:6px;}
+.header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sound-toggle{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:8px 14px;cursor:pointer;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.7);transition:background .2s;}
+.sound-toggle:hover{background:rgba(255,255,255,.14);}
+.sound-toggle .icon{font-size:16px;}
+.toggle-pill{width:36px;height:20px;background:#333;border-radius:10px;position:relative;transition:background .25s;flex-shrink:0;}
+.toggle-pill::after{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;background:#fff;border-radius:50%;transition:transform .25s;}
+.toggle-pill.on{background:var(--gold);}
+.toggle-pill.on::after{transform:translateX(16px);}
 
 /* SCOREBOARD */
-#scoreboard {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--ink);
-  border-bottom: 2px solid #2A2A2A;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+#scoreboard{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:2px solid #222;box-shadow:0 4px 20px rgba(0,0,0,.4);}
+.score-inner{display:flex;align-items:stretch;max-width:1000px;margin:0 auto;}
+.score-cell{flex:1;padding:10px 16px;border-right:1px solid #222;display:flex;flex-direction:column;justify-content:center;}
+.score-cell:last-child{border-right:none;}
+.score-cell.prog-cell{flex:2;padding:12px 20px;}
+.sc-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#444;margin-bottom:2px;}
+.sc-val{font-family:var(--mono);font-size:22px;font-weight:700;line-height:1;}
+.sc-val.v-ans{color:#7BA7D4;} .sc-val.v-cor{color:#5DD68C;} .sc-val.v-wrg{color:#F07070;} .sc-val.v-skp{color:#FFB347;} .sc-val.v-pct{color:var(--gold);}
+.prog-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:#444;margin-bottom:5px;}
+.prog-track{height:4px;background:#222;border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#5DD68C,var(--gold));border-radius:2px;width:0%;transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+/* FLOATING TIMER PILL */
+#timer-bar{
+  position:fixed;
+  bottom:24px;
+  right:20px;
+  z-index:500;
+  background:var(--ink);
+  border:1.5px solid #333;
+  border-radius:50px;
+  padding:10px 16px 10px 14px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.45);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:130px;
+  transition:box-shadow .3s;
 }
-.score-inner {
-  display: flex; align-items: stretch;
-  max-width: 1100px; margin: 0 auto;
+#timer-bar.warn-glow{
+  border-color:#F07070;
+  box-shadow:0 4px 20px rgba(240,112,112,0.45);
 }
-.score-cell {
-  flex: 1; padding: 12px 20px;
-  border-right: 1px solid #2A2A2A;
-  display: flex; flex-direction: column; justify-content: center;
+.timer-label{font-family:var(--mono);font-size:8px;color:#555;letter-spacing:.12em;text-transform:uppercase;}
+.timer-num{font-family:var(--mono);font-size:22px;font-weight:700;color:#fff;min-width:28px;text-align:center;transition:color .3s;line-height:1;}
+.timer-num.warn{color:#F07070;animation:pulse .6s infinite alternate;}
+@keyframes pulse{from{opacity:1}to{opacity:.5}}
+.timer-col{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.timer-track{width:72px;height:5px;background:#2A2A2A;border-radius:3px;overflow:hidden;}
+.timer-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#5DD68C,var(--gold));width:100%;transition:width 1s linear,background .5s;}
+.timer-fill.warn{background:linear-gradient(90deg,#F07070,#FF4444);}
+.timer-ring{
+  width:38px;height:38px;flex-shrink:0;
+  position:relative;
 }
-.score-cell:last-child { border-right: none; }
-.score-cell.progress-cell { flex: 2; padding: 14px 24px; }
-.sc-label {
-  font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: #555; margin-bottom: 3px;
-}
-.sc-value { font-family: var(--mono); font-size: 24px; font-weight: 700; line-height: 1; }
-.sc-value.v-ans  { color: #7BA7D4; }
-.sc-value.v-cor  { color: #5DD68C; }
-.sc-value.v-wrg  { color: #F07070; }
-.sc-value.v-pct  { color: var(--gold); }
-.prog-label {
-  display: flex; justify-content: space-between;
-  font-family: var(--mono); font-size: 10px; color: #444; margin-bottom: 6px;
-}
-.prog-track { height: 4px; background: #222; border-radius: 2px; overflow: hidden; }
-.prog-fill {
-  height: 100%; border-radius: 2px;
-  background: linear-gradient(90deg, #5DD68C, var(--gold));
-  width: 0%; transition: width 0.5s cubic-bezier(.4,0,.2,1);
+.timer-ring svg{transform:rotate(-90deg);width:38px;height:38px;}
+.timer-ring circle{fill:none;stroke-width:3;}
+.ring-bg{stroke:#2A2A2A;}
+.ring-fg{stroke:#5DD68C;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear,stroke .5s;}
+.ring-fg.warn{stroke:#F07070;}
+@media(max-width:640px){
+  #timer-bar{bottom:16px;right:12px;padding:8px 12px 8px 10px;min-width:110px;}
+  .timer-num{font-size:18px;}
+  .timer-ring{width:32px;height:32px;}
+  .timer-ring svg{width:32px;height:32px;}
 }
 
 /* MAIN */
-main { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
+main{max-width:820px;margin:0 auto;padding:32px 20px 80px;}
 
-/* SECTION HEADER */
-.sec-head { display: flex; align-items: center; gap: 0; margin: 48px 0 20px; }
-.sec-head:first-child { margin-top: 0; }
-.sec-num {
-  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
-  color: var(--muted); writing-mode: vertical-lr;
-  transform: rotate(180deg); margin-right: 14px; text-transform: uppercase;
-}
-.sec-body { flex: 1; }
-.sec-name {
-  font-family: var(--display); font-size: 11px; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy);
-  background: var(--gold-lt); border: 1px solid var(--gold);
-  display: inline-block; padding: 4px 12px; border-radius: 2px; margin-bottom: 8px;
-}
-.sec-line { height: 1px; background: linear-gradient(90deg, var(--rule) 80%, transparent); }
+/* SECTION HEAD */
+.sec-head{display:flex;align-items:center;gap:0;margin:40px 0 16px;}
+.sec-head:first-child{margin-top:0;}
+.sec-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--muted);writing-mode:vertical-lr;transform:rotate(180deg);margin-right:12px;text-transform:uppercase;}
+.sec-body{flex:1;}
+.sec-name{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold-lt);border:1px solid var(--gold);display:inline-block;padding:3px 10px;border-radius:2px;margin-bottom:6px;}
+.sec-line{height:1px;background:linear-gradient(90deg,var(--rule) 80%,transparent);}
 
 /* QUESTION CARD */
-.q-card {
-  background: var(--card); border: 1px solid var(--rule);
-  border-radius: 3px; margin-bottom: 14px; overflow: hidden;
-  transition: border-color 0.25s; position: relative;
-}
-.q-card::before {
-  content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--rule); transition: background 0.25s;
-}
-.q-card.state-correct::before { background: var(--green); }
-.q-card.state-wrong::before   { background: var(--red); }
-.q-card.state-correct { border-color: var(--green-bd); }
-.q-card.state-wrong   { border-color: var(--red-bd); }
-.q-top {
-  padding: 16px 20px 14px 22px;
-  display: flex; align-items: flex-start; gap: 14px;
-  border-bottom: 1px solid var(--rule);
-}
-.q-num-tag {
-  font-family: var(--mono); font-size: 10px; font-weight: 700;
-  color: var(--muted); background: var(--paper);
-  border: 1px solid var(--rule); padding: 3px 8px; border-radius: 2px;
-  flex-shrink: 0; margin-top: 1px; letter-spacing: 0.05em;
-}
-.q-text { font-family: var(--serif); font-size: 14.5px; line-height: 1.6; flex: 1; color: var(--ink); }
-.q-text code {
-  font-family: var(--mono); font-size: 12.5px;
-  background: #EDEAE2; color: var(--navy);
-  padding: 1px 5px; border-radius: 2px; border: 1px solid #D8D4CC;
-}
-.diff-pip {
-  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em;
-  text-transform: uppercase; padding: 3px 7px; border-radius: 2px;
-  flex-shrink: 0; margin-top: 2px; font-weight: 700;
-}
-.diff-easy   { background: #EAF5EE; color: var(--green);  border: 1px solid var(--green-bd); }
-.diff-medium { background: #FFF7E0; color: #7A5800;        border: 1px solid #DDB84A; }
-.diff-hard   { background: var(--red-lt); color: var(--red); border: 1px solid var(--red-bd); }
+.q-card{background:var(--card);border:1px solid var(--rule);border-radius:3px;margin-bottom:12px;overflow:hidden;transition:border-color .25s;position:relative;}
+.q-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rule);transition:background .25s;}
+.q-card.state-correct::before{background:var(--green);}
+.q-card.state-wrong::before{background:var(--red);}
+.q-card.state-skipped::before{background:var(--orange);}
+.q-card.state-correct{border-color:var(--green-bd);}
+.q-card.state-wrong{border-color:var(--red-bd);}
+.q-card.state-skipped{border-color:var(--orange-bd);}
+.q-card.active-card{border-color:var(--navy);box-shadow:0 0 0 2px rgba(15,35,65,.15);}
+.q-top{padding:14px 18px 12px 20px;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid var(--rule);}
+.q-num-tag{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);background:var(--paper);border:1px solid var(--rule);padding:3px 7px;border-radius:2px;flex-shrink:0;margin-top:1px;letter-spacing:.05em;}
+.q-text{font-family:var(--serif);font-size:14px;line-height:1.6;flex:1;color:var(--ink);}
+.q-text code{font-family:var(--mono);font-size:12px;background:#EDEAE2;color:var(--navy);padding:1px 5px;border-radius:2px;border:1px solid #D8D4CC;}
+.diff-pip{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;font-weight:700;}
+.diff-easy{background:#EAF5EE;color:var(--green);border:1px solid var(--green-bd);}
+.diff-medium{background:#FFF7E0;color:#7A5800;border:1px solid #DDB84A;}
+.diff-hard{background:var(--red-lt);color:var(--red);border:1px solid var(--red-bd);}
 
 /* OPTIONS */
-.opts { padding: 12px 20px 14px 22px; display: grid; gap: 7px; }
-.opt-btn {
-  display: flex; align-items: center; gap: 11px;
-  padding: 10px 14px; border: 1.5px solid var(--rule);
-  border-radius: 3px; background: var(--paper);
-  cursor: pointer; text-align: left;
-  font-family: var(--display); font-size: 13px; font-weight: 400;
-  color: var(--ink); line-height: 1.45; width: 100%;
-  transition: border-color 0.15s, background 0.15s, transform 0.1s;
-}
-.opt-btn:hover:not(:disabled) {
-  border-color: var(--navy); background: #EDF2F9; transform: translateX(2px);
-}
-.opt-btn:active:not(:disabled) { transform: translateX(4px); }
-.opt-btn:disabled { cursor: default; }
-.opt-letter {
-  font-family: var(--mono); font-size: 10px; font-weight: 700;
-  width: 24px; height: 24px; border-radius: 50%;
-  background: var(--card); border: 1.5px solid var(--rule);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; transition: all 0.15s; color: var(--muted);
-}
-.opt-btn.opt-correct { background: var(--green-lt); border-color: var(--green-bd); color: var(--green); }
-.opt-btn.opt-correct .opt-letter { background: var(--green); color: #fff; border-color: var(--green); }
-.opt-btn.opt-wrong   { background: var(--red-lt);   border-color: var(--red-bd);   color: var(--red); }
-.opt-btn.opt-wrong .opt-letter   { background: var(--red);   color: #fff; border-color: var(--red); }
-.opt-btn.opt-dim { opacity: 0.35; }
+.opts{padding:10px 18px 12px 20px;display:grid;gap:6px;}
+.opt-btn{display:flex;align-items:center;gap:10px;padding:9px 13px;border:1.5px solid var(--rule);border-radius:3px;background:var(--paper);cursor:pointer;text-align:left;font-family:var(--display);font-size:13px;color:var(--ink);line-height:1.4;width:100%;transition:border-color .15s,background .15s,transform .1s;}
+.opt-btn:hover:not(:disabled){border-color:var(--navy);background:#EDF2F9;transform:translateX(2px);}
+.opt-btn:disabled{cursor:default;}
+.opt-letter{font-family:var(--mono);font-size:10px;font-weight:700;width:22px;height:22px;border-radius:50%;background:var(--card);border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);transition:all .15s;}
+.opt-btn.opt-correct{background:var(--green-lt);border-color:var(--green-bd);color:var(--green);}
+.opt-btn.opt-correct .opt-letter{background:var(--green);color:#fff;border-color:var(--green);}
+.opt-btn.opt-wrong{background:var(--red-lt);border-color:var(--red-bd);color:var(--red);}
+.opt-btn.opt-wrong .opt-letter{background:var(--red);color:#fff;border-color:var(--red);}
+.opt-btn.opt-dim{opacity:.3;}
 
-/* FEEDBACK */
-.fb-strip { display: none; padding: 8px 22px 12px; font-family: var(--mono); font-size: 11px; align-items: flex-start; gap: 8px; line-height: 1.4; }
-.fb-strip.show { display: flex; }
-.fb-strip.fb-ok  { color: var(--green); }
-.fb-strip.fb-bad { color: var(--red); }
-.fb-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
-.fb-note { color: var(--muted); margin-left: 4px; }
+/* SKIP BUTTON */
+.skip-row{padding:0 18px 12px 20px;display:flex;justify-content:flex-end;}
+.skip-btn{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);background:var(--orange-lt);border:1px solid var(--orange-bd);padding:5px 14px;border-radius:2px;cursor:pointer;transition:opacity .2s;}
+.skip-btn:hover{opacity:.75;}
+.skip-btn:disabled{opacity:.3;cursor:default;}
+
+/* FEEDBACK + EXPLANATION */
+.fb-strip{display:none;padding:6px 20px 8px;font-family:var(--mono);font-size:11px;align-items:flex-start;gap:8px;line-height:1.4;flex-wrap:wrap;}
+.fb-strip.show{display:flex;}
+.fb-strip.fb-ok{color:var(--green);}
+.fb-strip.fb-bad{color:var(--red);}
+.fb-strip.fb-skip{color:var(--orange);}
+.fb-icon{font-size:13px;flex-shrink:0;margin-top:1px;}
+.fb-note{color:var(--muted);margin-left:4px;}
+.expl-box{width:100%;margin-top:6px;background:#F8F5EE;border:1px solid var(--rule);border-radius:3px;padding:8px 12px;font-family:var(--serif);font-size:12.5px;line-height:1.6;color:#444;display:none;}
+.expl-box.show{display:block;}
+.expl-toggle{font-family:var(--mono);font-size:10px;color:var(--navy);cursor:pointer;text-decoration:underline;margin-left:8px;background:none;border:none;}
 
 /* FINAL PANEL */
-#final-panel {
-  display: none; margin-top: 60px;
-  background: var(--navy); border-radius: 4px;
-  padding: 52px 40px; text-align: center;
-  position: relative; overflow: hidden;
-}
-#final-panel::before {
-  content: ''; position: absolute; inset: 0;
-  background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.015) 20px, rgba(255,255,255,0.015) 21px);
-}
-.final-inner { position: relative; z-index: 1; }
-.final-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.final-title { font-family: var(--display); font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 6px; }
-.final-score { font-family: var(--mono); font-size: 72px; font-weight: 700; color: var(--gold); line-height: 1; margin: 20px 0 8px; letter-spacing: -0.02em; }
-.final-detail { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-.final-grade  { font-family: var(--display); font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 32px; }
-.breakdown { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 10px; margin: 28px 0 36px; text-align: left; }
-.bd-cell { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; padding: 12px 14px; }
-.bd-topic { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
-.bd-score { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--gold); }
-.bd-out   { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.3); }
-.restart-btn {
-  background: var(--gold); color: var(--navy); border: none;
-  font-family: var(--display); font-size: 13px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 14px 36px; border-radius: 3px; cursor: pointer;
-  transition: opacity 0.2s, transform 0.15s;
-}
-.restart-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+#final-panel{display:none;margin-top:50px;background:var(--navy);border-radius:4px;padding:48px 36px;text-align:center;position:relative;overflow:hidden;}
+#final-panel::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.015) 20px,rgba(255,255,255,.015) 21px);}
+.final-inner{position:relative;z-index:1;}
+.final-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.final-title{font-family:var(--display);font-size:26px;font-weight:800;color:#fff;margin-bottom:4px;}
+.final-score{font-family:var(--mono);font-size:68px;font-weight:700;color:var(--gold);line-height:1;margin:16px 0 6px;letter-spacing:-.02em;}
+.final-detail{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.4);margin-bottom:4px;}
+.final-grade{font-family:var(--display);font-size:14px;font-weight:700;color:#fff;margin-bottom:24px;}
+.breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:20px 0 28px;text-align:left;}
+.bd-cell{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:10px 12px;}
+.bd-topic{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:3px;}
+.bd-score{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--gold);}
+.bd-out{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.3);}
+.final-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-restart,.btn-share{padding:13px 28px;border-radius:3px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;transition:opacity .2s,transform .15s;}
+.btn-restart{background:var(--gold);color:var(--navy);}
+.btn-share{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);}
+.btn-restart:hover,.btn-share:hover{opacity:.85;transform:translateY(-1px);}
 
-@media (max-width: 640px) {
-  .site-header { padding: 24px 16px 20px; }
-  .score-cell  { padding: 10px 12px; }
-  .sc-value    { font-size: 18px; }
-  .score-cell.progress-cell { display: none; }
-  main         { padding: 28px 12px 60px; }
-  .q-top       { padding: 12px 14px 12px 18px; }
-  .opts        { padding: 10px 14px 12px 18px; }
-  .q-text      { font-size: 13.5px; }
-  .opt-btn     { font-size: 12.5px; padding: 9px 11px; }
-  #final-panel { padding: 36px 20px; }
-  .final-score { font-size: 54px; }
+/* SHARE TOAST */
+#share-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--ink);color:#fff;font-family:var(--mono);font-size:12px;padding:10px 20px;border-radius:4px;opacity:0;transition:all .3s;z-index:999;white-space:nowrap;}
+#share-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:640px){
+  .site-header{padding:20px 16px 18px;}
+  .score-cell{padding:8px 10px;}.sc-val{font-size:17px;}
+  .score-cell.prog-cell{display:none;}
+  main{padding:24px 12px 60px;}
+  .q-top{padding:11px 12px 10px 16px;}.opts{padding:8px 12px 10px 16px;}
+  .q-text{font-size:13px;}.opt-btn{font-size:12.5px;padding:8px 10px;}
+  #final-panel{padding:32px 18px;}.final-score{font-size:52px;}
+  .header-controls{width:100%;}
 }
 </style>
 </head>
@@ -260,39 +194,48 @@ main { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-badge">HTML Certification Practice</div>
-    <h1>HTML <span>Mastery</span> Quiz</h1>
-    <div class="header-meta">
-      <span>100 Questions</span>
-      <span>Mixed Difficulty</span>
-      <span>Instant Feedback</span>
-      <span>Topic Breakdown</span>
+    <div class="header-left">
+      <div class="header-badge">HTML Certification Practice</div>
+      <h1>HTML <span>Mastery</span> Quiz</h1>
+      <div class="header-meta" id="q-count-meta">300 Questions · Mixed Difficulty · 30s Timer · Shuffle</div>
+    </div>
+    <div class="header-controls">
+      <div class="sound-toggle" onclick="toggleSound()">
+        <span class="icon" id="sound-icon">🔊</span>
+        <span>Sound</span>
+        <div class="toggle-pill on" id="sound-pill"></div>
+      </div>
     </div>
   </div>
 </header>
 
+<!-- SCOREBOARD -->
 <div id="scoreboard">
   <div class="score-inner">
-    <div class="score-cell">
-      <div class="sc-label">Answered</div>
-      <div class="sc-value v-ans" id="st-ans">0</div>
-    </div>
-    <div class="score-cell">
-      <div class="sc-label">Correct</div>
-      <div class="sc-value v-cor" id="st-cor">0</div>
-    </div>
-    <div class="score-cell">
-      <div class="sc-label">Wrong</div>
-      <div class="sc-value v-wrg" id="st-wrg">0</div>
-    </div>
-    <div class="score-cell">
-      <div class="sc-label">Score</div>
-      <div class="sc-value v-pct" id="st-pct">--</div>
-    </div>
-    <div class="score-cell progress-cell">
-      <div class="prog-label"><span>Progress</span><span id="prog-txt">0 / 100</span></div>
+    <div class="score-cell"><div class="sc-label">Answered</div><div class="sc-val v-ans" id="st-ans">0</div></div>
+    <div class="score-cell"><div class="sc-label">Correct</div><div class="sc-val v-cor" id="st-cor">0</div></div>
+    <div class="score-cell"><div class="sc-label">Wrong</div><div class="sc-val v-wrg" id="st-wrg">0</div></div>
+    <div class="score-cell"><div class="sc-label">Skipped</div><div class="sc-val v-skp" id="st-skp">0</div></div>
+    <div class="score-cell"><div class="sc-label">Score</div><div class="sc-val v-pct" id="st-pct">--</div></div>
+    <div class="score-cell prog-cell">
+      <div class="prog-lbl"><span>Progress</span><span id="prog-txt">0 / 0</span></div>
       <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
     </div>
+  </div>
+</div>
+
+<!-- FLOATING TIMER PILL -->
+<div id="timer-bar">
+  <div class="timer-ring">
+    <svg viewBox="0 0 38 38">
+      <circle class="ring-bg" cx="19" cy="19" r="15" pathLength="100"/>
+      <circle class="ring-fg" id="ring-fg" cx="19" cy="19" r="15" pathLength="100"/>
+    </svg>
+  </div>
+  <div class="timer-col">
+    <div class="timer-num" id="timer-num">30</div>
+    <div class="timer-label">sec</div>
+    <div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
   </div>
 </div>
 
@@ -303,156 +246,75 @@ main { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
       <div class="final-title">Your Final Result</div>
       <div class="final-score" id="fin-score">--</div>
       <div class="final-detail" id="fin-detail"></div>
-      <div class="final-grade"  id="fin-grade"></div>
-      <div class="breakdown"    id="fin-breakdown"></div>
-      <button class="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+      <div class="final-grade" id="fin-grade"></div>
+      <div class="breakdown" id="fin-breakdown"></div>
+      <div class="final-btns">
+        <button class="btn-restart" onclick="restartQuiz()">↺ Restart</button>
+        <button class="btn-share" onclick="shareResult()">↗ Share Result</button>
+      </div>
     </div>
   </div>
 </main>
+<div id="share-toast">✓ Result copied to clipboard!</div>
 
+<script type="application/json" id="qdata">[{"s": "Basic Tags & Structure", "d": "easy", "q": "What does HTML stand for?", "o": ["Hyper Text Markup Language", "High Transfer Markup Language", "Hyper Transfer Machine Language", "Hyper Text Machine Level"], "a": 0, "e": "HTML = HyperText Markup Language. It is the standard markup language for creating web pages."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag defines the root element of an HTML document?", "o": ["<head>", "<body>", "<html>", "<root>"], "a": 2, "e": "The <html> tag is the root element that wraps all other HTML elements on the page."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag defines the document title shown in the browser tab?", "o": ["<meta>", "<title>", "<header>", "<caption>"], "a": 1, "e": "The <title> element sets the document title displayed in the browser tab and bookmarks."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which HTML tag creates the largest heading?", "o": ["<h6>", "<heading>", "<h1>", "<head>"], "a": 2, "e": "<h1> is the highest-level heading. HTML headings go from <h1> (largest) to <h6> (smallest)."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag creates a hyperlink?", "o": ["<link>", "<href>", "<a>", "<url>"], "a": 2, "e": "The <a> (anchor) element creates hyperlinks. The href attribute specifies the destination URL."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "What is the correct tag to insert a line break?", "o": ["<lb>", "<break>", "<br>", "<newline>"], "a": 2, "e": "<br> is a void element that inserts a single line break in the content flow."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag creates an unordered (bulleted) list?", "o": ["<ol>", "<list>", "<ul>", "<dl>"], "a": 2, "e": "<ul> creates an unordered list. Each item is wrapped in <li>. Bullets appear by default."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag defines a list item?", "o": ["<item>", "<li>", "<dt>", "<ls>"], "a": 1, "e": "<li> defines each item in both ordered (<ol>) and unordered (<ul>) lists."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which attribute specifies the destination URL of a hyperlink?", "o": ["src", "url", "link", "href"], "a": 3, "e": "The href (Hypertext REFerence) attribute on <a> specifies where the link goes."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which attribute value makes a link open in a new browser tab?", "o": ["target=\"_blank\"", "target=\"_new\"", "target=\"_tab\"", "open=\"new\""], "a": 0, "e": "target=\"_blank\" tells the browser to open the link in a new tab or window."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag embeds an image on a page?", "o": ["<picture>", "<image>", "<img>", "<photo>"], "a": 2, "e": "<img> is a void element that embeds images. The src attribute holds the image URL."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which attribute provides alternate text for an image?", "o": ["title", "alt", "desc", "caption"], "a": 1, "e": "The alt attribute provides alternative text for screen readers and when the image fails to load."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag draws a horizontal dividing line?", "o": ["<hr>", "<line>", "<hl>", "<hline>"], "a": 0, "e": "<hr> (Horizontal Rule) renders a thematic break as a horizontal line across the page."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "What is the semantic difference between `<b>` and `<strong>`?", "o": ["No difference", "<strong> implies importance; <b> is purely stylistic", "<b> implies importance; <strong> is stylistic", "<strong> is deprecated in HTML5"], "a": 1, "e": "<strong> carries semantic importance (screen readers may stress it), while <b> is purely a visual bold with no extra meaning."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "What declaration must appear at the very beginning of an HTML5 document?", "o": ["<html>", "<!DOCTYPE html>", "<head>", "<!-- HTML5 -->"], "a": 1, "e": "<!DOCTYPE html> tells the browser this is an HTML5 document and prevents quirks mode rendering."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag defines a paragraph?", "o": ["<par>", "<pg>", "<p>", "<para>"], "a": 2, "e": "<p> is the standard block-level element for a paragraph of text."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "What is the semantic difference between `<i>` and `<em>`?", "o": ["No difference", "<em> stresses emphasis; <i> is stylistic italic", "<i> stresses emphasis; <em> is stylistic", "<em> is deprecated"], "a": 1, "e": "<em> conveys emphatic stress (affects meaning), while <i> is used for styling like technical terms or foreign phrases."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag defines metadata about the HTML document?", "o": ["<data>", "<info>", "<meta>", "<head>"], "a": 2, "e": "<meta> elements provide metadata like charset, viewport settings, description, and keywords."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which attribute on `<meta>` sets the character encoding?", "o": ["encoding", "lang", "charset", "type"], "a": 2, "e": "charset=\"UTF-8\" on <meta> tells the browser which character encoding to use to decode the document."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which tag defines a block of preformatted text preserving whitespace?", "o": ["<code>", "<pre>", "<samp>", "<kbd>"], "a": 1, "e": "<pre> renders text exactly as written in the HTML, preserving spaces, tabs, and line breaks."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag makes text bold in HTML?", "o": ["<bold>", "<b>", "<strong>", "Both B and C"], "a": 3, "e": "Both <b> and <strong> render text bold visually. <strong> additionally carries semantic importance."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which tag makes text italic?", "o": ["<italic>", "<it>", "<i>", "<style>"], "a": 2, "e": "<i> renders text in italic style. <em> also renders italic but with semantic emphasis."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag represents a generic block-level container with no semantic meaning?", "o": ["<section>", "<span>", "<div>", "<block>"], "a": 2, "e": "<div> is a block-level container used to group content for styling or scripting without adding meaning."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag represents a generic inline container with no semantic meaning?", "o": ["<inline>", "<span>", "<i>", "<a>"], "a": 1, "e": "<span> is an inline container used to group text/inline elements for styling without semantic meaning."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which attribute adds a tooltip when hovering over an element?", "o": ["tooltip", "alt", "hint", "title"], "a": 3, "e": "The title attribute adds a browser tooltip that appears when a user hovers over the element."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which HTML element defines the character set and viewport in a single common usage?", "o": ["<link>", "<style>", "<meta>", "<base>"], "a": 2, "e": "<meta> is used for both charset declaration and viewport configuration, making it central to page setup."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which tag specifies the base URL for all relative URLs in a document?", "o": ["<root>", "<base>", "<href>", "<origin>"], "a": 1, "e": "<base> in <head> sets the base URL so all relative links and resources resolve from that URL."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag inserts a comment in HTML that is not displayed in the browser?", "o": ["// comment", "/* comment */", "<!-- comment -->", "** comment **"], "a": 2, "e": "HTML comments use <!-- --> syntax. They are ignored by the browser and not shown to users."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "What does the `lang` attribute on `<html>` specify?", "o": ["The layout direction", "The page language", "The character set", "The text encoding"], "a": 1, "e": "lang=\"en\" on <html> declares the page language, helping screen readers and search engines."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which attribute controls text direction (left-to-right or right-to-left)?", "o": ["dir", "lang", "orient", "flow"], "a": 0, "e": "The dir attribute (values: ltr, rtl, auto) controls text directionality for languages like Arabic or Hebrew."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which void element links an external CSS stylesheet to an HTML page?", "o": ["<style>", "<css>", "<link>", "<import>"], "a": 2, "e": "<link rel=\"stylesheet\" href=\"style.css\"> in <head> links an external CSS file."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag embeds inline CSS styles within an HTML document?", "o": ["<css>", "<style>", "<script>", "<link>"], "a": 1, "e": "<style> inside <head> lets you write CSS directly in the HTML document."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which element is used to embed JavaScript inside an HTML page?", "o": ["<js>", "<java>", "<code>", "<script>"], "a": 3, "e": "<script> embeds or references JavaScript. It can be placed in <head> or <body>."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which tag creates a subscript (e.g. H₂O)?", "o": ["<sub>", "<sup>", "<low>", "<down>"], "a": 0, "e": "<sub> renders text as subscript, positioned below the normal line (used in chemical formulas)."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which tag creates a superscript (e.g. x²)?", "o": ["<sub>", "<sup>", "<high>", "<up>"], "a": 1, "e": "<sup> renders text as superscript, positioned above the normal line (used for exponents, footnotes)."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which element represents text that has been inserted into the document?", "o": ["<add>", "<new>", "<ins>", "<insert>"], "a": 2, "e": "<ins> marks text that has been added/inserted into the document, often shown underlined."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which HTML element defines the body/content area of a document?", "o": ["<content>", "<main>", "<body>", "<page>"], "a": 2, "e": "<body> contains all visible content of the HTML page including text, images, and links."}, {"s": "Basic Tags & Structure", "d": "easy", "q": "Which HTML element contains metadata and links to external resources?", "o": ["<top>", "<meta>", "<head>", "<info>"], "a": 2, "e": "<head> contains meta information, title, CSS links, and scripts. Its content is not displayed directly."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "How do you create a second-level heading?", "o": ["<h2>", "<heading2>", "<h level=2>", "<head2>"], "a": 0, "e": "<h2> creates a second-level heading, one level below <h1> in the document hierarchy."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which attribute makes an image a clickable link?", "o": ["Wrap <img> inside <a>", "Use src on <a>", "Use link attribute on <img>", "Use href on <img>"], "a": 0, "e": "To make an image a link, wrap it: <a href=\"url\"><img src=\"...\" alt=\"...\"><\/a>"}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which HTML element represents a word with an incorrect spelling, shown with a red wavy underline?", "o": ["<error>", "<wrong>", "<u>", "<s>"], "a": 2, "e": "<u> can mark text with a non-textual annotation like a spelling error. Browsers often show a wavy underline."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "What does a self-closing / void element mean in HTML5?", "o": ["It closes itself with />", "It has no closing tag", "It self-destructs after rendering", "It cannot have attributes"], "a": 1, "e": "Void elements like <br>, <img>, <hr>, <meta> have no closing tag and cannot contain child elements."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which element is used to define a caption or summary for a `<details>` element?", "o": ["<caption>", "<title>", "<summary>", "<label>"], "a": 2, "e": "<summary> inside <details> acts as the visible heading/label for the collapsible content block."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "How is an external JavaScript file linked in HTML?", "o": ["<script href=\"file.js\">", "<js src=\"file.js\">", "<script src=\"file.js\">", "<link js=\"file.js\">"], "a": 2, "e": "<script src=\"file.js\"><\/script> links an external JS file. The src attribute specifies the file path."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which element represents the output of a program or script?", "o": ["<code>", "<pre>", "<output>", "<samp>"], "a": 3, "e": "<samp> represents sample output from a computer program, typically rendered in a monospace font."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which element represents a variable in mathematics or programming?", "o": ["<var>", "<val>", "<v>", "<data>"], "a": 0, "e": "<var> represents a variable, often rendered in italics. Used for math expressions or code variables."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which tag creates an ordered (numbered) list?", "o": ["<ul>", "<dl>", "<list>", "<ol>"], "a": 3, "e": "<ol> creates a numbered/ordered list. By default, items are numbered 1, 2, 3..."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which HTML attribute globally available on any element adds an id that must be unique?", "o": ["class", "id", "name", "key"], "a": 1, "e": "The id attribute uniquely identifies an element in the page. Only one element can have a given id value."}, {"s": "Basic Tags & Structure", "d": "medium", "q": "Which attribute assigns reusable CSS class names to any HTML element?", "o": ["style", "id", "class", "name"], "a": 2, "e": "The class attribute assigns one or more CSS class names. Multiple elements can share the same class."}, {"s": "Basic Tags & Structure", "d": "hard", "q": "Which attribute adds inline CSS styles directly on an HTML element?", "o": ["css", "class", "stylesheet", "style"], "a": 3, "e": "The style attribute applies inline CSS rules directly: style=\"color:red; font-size:14px\""}, {"s": "Forms & Inputs", "d": "easy", "q": "Which tag is used to create an HTML form?", "o": ["<input>", "<form>", "<fieldset>", "<submit>"], "a": 1, "e": "<form> wraps all form controls. Its action attribute specifies where data is sent on submission."}, {"s": "Forms & Inputs", "d": "easy", "q": "Which input type creates a checkbox?", "o": ["type=\"check\"", "type=\"checkbox\"", "type=\"tick\"", "type=\"bool\""], "a": 1, "e": "<input type=\"checkbox\"> creates a toggleable checkbox that can be checked or unchecked."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute groups radio buttons so only one can be selected?", "o": ["id", "value", "name", "group"], "a": 2, "e": "All radio buttons with the same name attribute form a group — only one can be selected at a time."}, {"s": "Forms & Inputs", "d": "medium", "q": "What does the `for` attribute on `<label>` link to?", "o": ["The form name", "The id of an input", "The action URL", "The input value"], "a": 1, "e": "for=\"inputId\" connects the label to the input with that id, improving accessibility and click area."}, {"s": "Forms & Inputs", "d": "easy", "q": "Which element creates a multi-line text input?", "o": ["<input type=\"multiline\">", "<text>", "<textarea>", "<input type=\"textarea\">"], "a": 2, "e": "<textarea> creates a multi-line plain-text input. Rows and cols attributes set its default size."}, {"s": "Forms & Inputs", "d": "easy", "q": "Which attribute prevents a form field from being submitted empty?", "o": ["required", "notempty", "mandatory", "validate"], "a": 0, "e": "The required attribute on an input makes the browser prevent form submission if the field is empty."}, {"s": "Forms & Inputs", "d": "medium", "q": "What is the default HTTP method of a form if `method` is not set?", "o": ["POST", "PUT", "GET", "DELETE"], "a": 2, "e": "If no method is specified, the form defaults to GET, appending data to the URL as query parameters."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which input type shows a native color picker?", "o": ["type=\"colour\"", "type=\"color\"", "type=\"picker\"", "type=\"hex\""], "a": 1, "e": "<input type=\"color\"> opens the browser's native color picker. The value is a hex color string."}, {"s": "Forms & Inputs", "d": "easy", "q": "Which element creates a drop-down selection list?", "o": ["<list>", "<datalist>", "<dropdown>", "<select>"], "a": 3, "e": "<select> creates a dropdown. It contains <option> elements for each choice."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute specifies the URL where form data is sent?", "o": ["method", "target", "action", "href"], "a": 2, "e": "The action attribute on <form> defines the server-side URL that processes the submitted form data."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which element groups related form controls with a visible border?", "o": ["<formgroup>", "<group>", "<fieldset>", "<section>"], "a": 2, "e": "<fieldset> visually groups related inputs. Use <legend> inside to give the group a title."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which element provides a title or caption for a `<fieldset>`?", "o": ["<title>", "<label>", "<legend>", "<caption>"], "a": 2, "e": "<legend> is the first child of <fieldset> and provides a descriptive label for the group."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type creates a hidden field submitted with the form but not displayed?", "o": ["type=\"invisible\"", "type=\"hidden\"", "type=\"none\"", "type=\"secret\""], "a": 1, "e": "<input type=\"hidden\"> submits a value silently without being visible or editable by the user."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute disables a form input so the user cannot interact with it?", "o": ["readonly", "inactive", "disabled", "blocked"], "a": 2, "e": "disabled prevents any user interaction and excludes the field from form submission."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute makes a text field read-only but still submittable?", "o": ["disabled", "readonly", "locked", "noedit"], "a": 1, "e": "readonly prevents editing but the value is still included in the form submission, unlike disabled."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type validates that the value is a URL?", "o": ["type=\"link\"", "type=\"website\"", "type=\"url\"", "type=\"href\""], "a": 2, "e": "<input type=\"url\"> validates the format of a URL including the protocol (http:// etc)."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute sets the maximum number of characters in an input?", "o": ["max", "limit", "maxchars", "maxlength"], "a": 3, "e": "maxlength=\"100\" prevents the user from typing more than 100 characters into the field."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute displays hint text inside an empty input field?", "o": ["hint", "default", "placeholder", "example"], "a": 2, "e": "placeholder=\"Enter name\" shows grey hint text inside the field that disappears when the user types."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which encoding type must be set on a form to support file uploads?", "o": ["enctype=\"text/plain\"", "enctype=\"multipart/form-data\"", "enctype=\"application/json\"", "enctype=\"binary\""], "a": 1, "e": "enctype=\"multipart/form-data\" is required when a form includes <input type=\"file\"> for uploading files."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which `<button>` type attribute submits the form?", "o": ["type=\"send\"", "type=\"submit\"", "type=\"post\"", "type=\"go\""], "a": 1, "e": "<button type=\"submit\"> or <input type=\"submit\"> triggers form submission when clicked."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which input type creates a radio button?", "o": ["type=\"radio\"", "type=\"choice\"", "type=\"option\"", "type=\"select\""], "a": 0, "e": "<input type=\"radio\"> creates a radio button. Group them with same name attribute for single-select behavior."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which element provides auto-complete suggestions for an input field?", "o": ["<options>", "<suggest>", "<datalist>", "<autocomplete>"], "a": 2, "e": "<datalist> with <option> elements provides a suggestion list. Link it to input via list=\"datalist-id\"."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute links an `<input>` to a `<datalist>` for autocomplete suggestions?", "o": ["suggest", "autocomplete", "list", "data"], "a": 2, "e": "The list attribute on <input> points to the id of a <datalist> element to enable suggestions."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type creates a numeric range slider?", "o": ["type=\"slider\"", "type=\"range\"", "type=\"number\"", "type=\"scale\""], "a": 1, "e": "<input type=\"range\"> creates a slider control. Use min, max, and step attributes to configure it."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which input type creates a number field with up/down arrows?", "o": ["type=\"int\"", "type=\"digit\"", "type=\"number\"", "type=\"numeric\""], "a": 2, "e": "<input type=\"number\"> creates a numeric input with increment/decrement controls."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute sets the minimum acceptable value on a number or date input?", "o": ["floor", "minimum", "low", "min"], "a": 3, "e": "The min attribute defines the minimum allowed value for number, range, date, and similar inputs."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute sets the maximum acceptable value on a number input?", "o": ["ceiling", "maximum", "high", "max"], "a": 3, "e": "The max attribute defines the maximum allowed value for numeric and date-type inputs."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on a number input defines the stepping interval?", "o": ["interval", "increment", "jump", "step"], "a": 3, "e": "step=\"5\" means the value increments/decrements by 5 each click. Also enforced on form validation."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type lets a user select a file from their device?", "o": ["type=\"upload\"", "type=\"document\"", "type=\"file\"", "type=\"attach\""], "a": 2, "e": "<input type=\"file\"> opens the OS file picker. Use accept attribute to filter allowed file types."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on `<input type='file'>` allows selecting multiple files?", "o": ["multifile", "multi", "many", "multiple"], "a": 3, "e": "The multiple attribute on file inputs allows the user to select more than one file at once."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type creates a submit button using an image?", "o": ["type=\"img-submit\"", "type=\"image\"", "type=\"picture\"", "type=\"button-img\""], "a": 1, "e": "<input type=\"image\"> creates a graphical submit button using the image specified in the src attribute."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which `<button>` type resets all form fields to their default values?", "o": ["type=\"clear\"", "type=\"default\"", "type=\"reset\"", "type=\"cancel\""], "a": 2, "e": "<button type=\"reset\"> resets all form controls back to their initial default values."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute auto-focuses an input field when the page loads?", "o": ["focus", "autofocus", "active", "selected"], "a": 1, "e": "autofocus places the keyboard cursor automatically into that input when the page loads."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute on `<input type='text'>` sets its visible character width?", "o": ["width", "length", "size", "cols"], "a": 2, "e": "The size attribute sets the visible width of a text input in character units (not a CSS px width)."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute enables the browser's built-in autocomplete on an input?", "o": ["remember", "recall", "autocomplete", "fill"], "a": 2, "e": "autocomplete=\"on\" or autocomplete=\"off\" controls whether the browser suggests previously entered values."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which form attribute defines the form the input belongs to, even if outside the `<form>` tag?", "o": ["belongs", "form", "formid", "owner"], "a": 1, "e": "The form attribute on <input> takes a form's id, associating that input with the form even if outside it."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on `<textarea>` sets the number of visible text rows?", "o": ["height", "size", "lines", "rows"], "a": 3, "e": "rows=\"5\" on <textarea> sets the visible height of the text area in number of text lines."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on `<textarea>` sets the visible column width?", "o": ["width", "size", "chars", "cols"], "a": 3, "e": "cols=\"40\" sets the visible width of <textarea> in average character widths."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which `<input>` attribute uses a regex to validate the entered value?", "o": ["regex", "validate", "match", "pattern"], "a": 3, "e": "pattern=\"[A-Za-z]+\" validates that the input matches the specified regular expression."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type is best for entering a telephone number?", "o": ["type=\"phone\"", "type=\"call\"", "type=\"tel\"", "type=\"number\""], "a": 2, "e": "<input type=\"tel\"> is used for telephone numbers. On mobile, it often shows a numeric keyboard."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type enters both date and time in a combined field?", "o": ["type=\"datetime-local\"", "type=\"timestamp\"", "type=\"calendar\"", "type=\"dt\""], "a": 0, "e": "<input type=\"datetime-local\"> provides a combined date and time picker without timezone info."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type lets users select a week of a year?", "o": ["type=\"week\"", "type=\"weeknum\"", "type=\"wk\"", "type=\"weekpicker\""], "a": 0, "e": "<input type=\"week\"> shows a week picker allowing selection of a specific ISO week within a year."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type lets users select a month and year?", "o": ["type=\"month\"", "type=\"monthyear\"", "type=\"calendar-month\"", "type=\"mon\""], "a": 0, "e": "<input type=\"month\"> shows a month/year picker, returning values like \"2024-06\"."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which element inside `<select>` groups related options together?", "o": ["<group>", "<optgroup>", "<section>", "<category>"], "a": 1, "e": "<optgroup label=\"Group\"> wraps related <option> elements with a non-selectable label header."}, {"s": "Forms & Inputs", "d": "medium", "q": "Which attribute pre-selects an `<option>` in a `<select>` list?", "o": ["checked", "active", "selected", "default"], "a": 2, "e": "The selected attribute on <option> marks that option as the default selected value."}, {"s": "Forms & Inputs", "d": "medium", "q": "How do you allow multiple selections in a `<select>` dropdown?", "o": ["multi=\"true\"", "multiple", "multiselect", "many"], "a": 1, "e": "The multiple attribute on <select> allows users to select more than one option (Ctrl/Cmd+click)."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on a form overrides the action URL for a specific submit button?", "o": ["formtarget", "formmethod", "formaction", "override"], "a": 2, "e": "formaction on a submit button overrides the parent form's action attribute for that specific submission."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute suppresses HTML5 built-in validation on a form?", "o": ["novalidate", "skipvalidation", "validate=\"false\"", "bypass"], "a": 0, "e": "novalidate on <form> disables the browser's built-in HTML5 validation when submitting the form."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which input type is specifically designed for entering search queries?", "o": ["type=\"find\"", "type=\"query\"", "type=\"search\"", "type=\"lookup\""], "a": 2, "e": "<input type=\"search\"> is semantically intended for search boxes, often showing a clear (x) button."}, {"s": "Forms & Inputs", "d": "hard", "q": "Which attribute on a password input shows a strength-meter hint in some browsers?", "o": ["strength", "minlength", "secure", "pattern"], "a": 1, "e": "minlength sets the minimum character count and also influences password strength hints in some UAs."}, {"s": "HTML5 Features", "d": "easy", "q": "Which HTML5 element plays a video file?", "o": ["<media>", "<embed>", "<video>", "<stream>"], "a": 2, "e": "<video> is HTML5's native video player element. Use src attribute or <source> child elements."}, {"s": "HTML5 Features", "d": "easy", "q": "Which HTML5 element plays an audio file?", "o": ["<sound>", "<audio>", "<mp3>", "<media>"], "a": 1, "e": "<audio> embeds audio with controls attribute to show play/pause buttons."}, {"s": "HTML5 Features", "d": "easy", "q": "Which HTML5 input type validates an email address format?", "o": ["type=\"mail\"", "type=\"email-address\"", "type=\"email\"", "type=\"@\""], "a": 2, "e": "<input type=\"email\"> validates that the entered value contains an @ symbol and valid domain."}, {"s": "HTML5 Features", "d": "medium", "q": "Which HTML5 element draws 2D/3D graphics via JavaScript?", "o": ["<svg>", "<canvas>", "<draw>", "<graphic>"], "a": 1, "e": "<canvas> provides a drawing surface. JavaScript APIs (getContext) draw shapes, images, text on it."}, {"s": "HTML5 Features", "d": "easy", "q": "Which attribute on `<video>` starts playback automatically?", "o": ["play", "autorun", "autoplay", "start"], "a": 2, "e": "autoplay makes the video start as soon as it loads. Browsers may require muted attribute too."}, {"s": "HTML5 Features", "d": "medium", "q": "Which HTML5 element shows a native progress indicator?", "o": ["<bar>", "<status>", "<meter>", "<progress>"], "a": 3, "e": "<progress value=\"70\" max=\"100\"> renders a progress bar showing 70% completion."}, {"s": "HTML5 Features", "d": "easy", "q": "Which HTML5 input type shows a date picker?", "o": ["type=\"calendar\"", "type=\"datetime\"", "type=\"date\"", "type=\"day\""], "a": 2, "e": "<input type=\"date\"> opens the browser's native date picker and returns ISO format (YYYY-MM-DD)."}, {"s": "HTML5 Features", "d": "medium", "q": "What is the purpose of the HTML5 `<details>` element?", "o": ["Adds metadata", "Creates a collapsible disclosure widget", "Adds caption to a figure", "Embeds external content"], "a": 1, "e": "<details> creates a collapsible section. Clicking <summary> inside it shows/hides the rest."}, {"s": "HTML5 Features", "d": "medium", "q": "Which attribute on `<input type='range'>` sets the minimum value?", "o": ["low", "floor", "start", "min"], "a": 3, "e": "min=\"0\" sets the leftmost (lowest) value of the range slider."}, {"s": "HTML5 Features", "d": "medium", "q": "Which HTML5 attribute pattern stores custom data on any element?", "o": ["custom-*", "meta-*", "data-*", "info-*"], "a": 2, "e": "data-* attributes (e.g. data-id=\"5\") store extra info accessible via JS dataset API."}, {"s": "HTML5 Features", "d": "hard", "q": "Which tag defines a client-side template not rendered immediately?", "o": ["<hidden>", "<template>", "<noscript>", "<fragment>"], "a": 1, "e": "<template> holds HTML that is parsed but not rendered. JavaScript can clone and insert it dynamically."}, {"s": "HTML5 Features", "d": "medium", "q": "Which HTML5 element represents a scalar value within a known range?", "o": ["<progress>", "<range>", "<meter>", "<gauge>"], "a": 2, "e": "<meter value=\"6\" min=\"0\" max=\"10\"> shows a gauge-like indicator (disk usage, rating, etc.)."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 element displays the result of a user action or calculation?", "o": ["<r>", "<output>", "<calc>", "<display>"], "a": 1, "e": "<output> represents the result of a form calculation. Use for attribute to link input ids to it."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on `<script>` defers execution until HTML parsing is complete?", "o": ["async", "defer", "lazy", "wait"], "a": 1, "e": "defer downloads the script in parallel but executes it only after the HTML is fully parsed."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on `<script>` downloads and executes the script asynchronously?", "o": ["defer", "async", "preload", "lazy"], "a": 1, "e": "async downloads and executes the script as soon as it's ready, without blocking HTML parsing."}, {"s": "HTML5 Features", "d": "medium", "q": "Which element embeds another HTML page inside the current page?", "o": ["<frame>", "<embed>", "<iframe>", "<include>"], "a": 2, "e": "<iframe src=\"url\"> embeds an external page. It has its own browsing context (sandboxed)."}, {"s": "HTML5 Features", "d": "hard", "q": "Which `<meta>` name value enables responsive design on mobile?", "o": ["name=\"responsive\"", "name=\"viewport\"", "name=\"mobile\"", "name=\"screen\""], "a": 1, "e": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> enables responsive scaling."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 input type lets users select a specific time?", "o": ["type=\"clock\"", "type=\"hour\"", "type=\"time\"", "type=\"hms\""], "a": 2, "e": "<input type=\"time\"> opens a time picker. Value format is HH:MM (24-hour)."}, {"s": "HTML5 Features", "d": "hard", "q": "Which `<img>` attribute enables native lazy loading?", "o": ["loading=\"defer\"", "loading=\"lazy\"", "loading=\"slow\"", "loading=\"off\""], "a": 1, "e": "loading=\"lazy\" defers loading of off-screen images until the user scrolls near them."}, {"s": "HTML5 Features", "d": "hard", "q": "Which element inside `<details>` acts as the visible clickable heading?", "o": ["<title>", "<label>", "<summary>", "<caption>"], "a": 2, "e": "<summary> is the visible heading of a <details> element that toggles the expanded/collapsed state."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 API allows storing data in the browser that persists after closing?", "o": ["CookieStorage", "sessionStorage", "localStorage", "IndexedDB"], "a": 2, "e": "localStorage stores key-value data with no expiry. sessionStorage expires when the tab closes."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 feature allows drag-and-drop with the `draggable` attribute?", "o": ["Drag API", "DnD API", "HTML5 Drag and Drop API", "Move API"], "a": 2, "e": "Setting draggable=\"true\" on an element enables HTML5 Drag and Drop. JS events handle the logic."}, {"s": "HTML5 Features", "d": "medium", "q": "Which element provides native vector graphics support in HTML5?", "o": ["<canvas>", "<vector>", "<svg>", "<draw>"], "a": 2, "e": "<svg> embeds Scalable Vector Graphics directly in HTML. SVG elements scale without quality loss."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 attribute marks a video to loop playback continuously?", "o": ["loop", "repeat", "cycle", "infinite"], "a": 0, "e": "The loop attribute on <video> and <audio> makes playback restart automatically when it ends."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute mutes a video by default?", "o": ["silent", "quiet", "muted", "noaudio"], "a": 2, "e": "muted on <video> starts playback with no sound, often required for autoplay to work in browsers."}, {"s": "HTML5 Features", "d": "medium", "q": "Which element provides multiple source formats for a `<video>` or `<audio>` element?", "o": ["<file>", "<format>", "<src>", "<source>"], "a": 3, "e": "<source src=\"file.mp4\" type=\"video/mp4\"> inside <video> provides fallback format options."}, {"s": "HTML5 Features", "d": "hard", "q": "Which element adds timed text tracks (subtitles/captions) to a video?", "o": ["<subtitle>", "<caption>", "<track>", "<cc>"], "a": 2, "e": "<track src=\"subs.vtt\" kind=\"subtitles\"> inside <video> adds WebVTT subtitle/caption tracks."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on `<link>` preloads a resource before it is needed?", "o": ["rel=\"preload\"", "rel=\"prefetch\"", "rel=\"load\"", "rel=\"cache\""], "a": 0, "e": "rel=\"preload\" tells the browser to fetch a resource early (fonts, scripts, images) before rendering needs it."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 element enables offline web applications using a cache manifest?", "o": ["<offline>", "<appscache>", "<manifest>", "None – it was <html manifest>"], "a": 3, "e": "The manifest attribute on <html> linked an app cache manifest. This feature is now deprecated in favor of Service Workers."}, {"s": "HTML5 Features", "d": "hard", "q": "Which `<meta>` http-equiv value refreshes the page after N seconds?", "o": ["http-equiv=\"refresh\"", "http-equiv=\"reload\"", "http-equiv=\"redirect\"", "http-equiv=\"timer\""], "a": 0, "e": "<meta http-equiv=\"refresh\" content=\"5\"> reloads the page after 5 seconds."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 input attribute suggests the type of content expected for autofill purposes?", "o": ["suggest", "type", "autocomplete", "fill"], "a": 2, "e": "autocomplete=\"name\" or \"email\" hints to browsers and password managers what kind of data to autofill."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute provides a URL hint for browsers to DNS-prefetch?", "o": ["rel=\"dns\"", "rel=\"prefetch\"", "rel=\"dns-prefetch\"", "rel=\"preconnect\""], "a": 2, "e": "<link rel=\"dns-prefetch\" href=\"//example.com\"> resolves DNS early, speeding up future requests."}, {"s": "HTML5 Features", "d": "hard", "q": "Which tag defines a web component's custom element in HTML5?", "o": ["<custom>", "<component>", "<element>", "Using JS customElements.define"], "a": 3, "e": "Custom Elements are defined via JavaScript using customElements.define('my-element', MyClass), not a specific tag."}, {"s": "HTML5 Features", "d": "medium", "q": "Which attribute on `<img>` provides multiple image sources for different screen sizes?", "o": ["sizes", "srcset", "multisrc", "responsive"], "a": 1, "e": "srcset=\"img-2x.png 2x, img-1x.png 1x\" lets the browser choose the best resolution image."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 element wraps multiple `<img>` or `<source>` tags for art direction of images?", "o": ["<gallery>", "<figure>", "<picture>", "<photo>"], "a": 2, "e": "<picture> with multiple <source> elements lets browsers choose the best image based on media queries."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on `<script>` specifies the module type for ES modules?", "o": ["kind=\"module\"", "import", "type=\"module\"", "module=\"true\""], "a": 2, "e": "<script type=\"module\"> enables ES6 module syntax (import/export). Scripts are deferred by default."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 attribute makes a content-editable element on the page?", "o": ["editable=\"true\"", "edit", "contenteditable", "writeable"], "a": 2, "e": "contenteditable=\"true\" on any element makes its content editable directly in the browser."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute hides an element from view and from accessibility tree?", "o": ["display=\"none\"", "visible=\"false\"", "hidden", "collapsed"], "a": 2, "e": "The hidden attribute is a Boolean global attribute that hides an element (equivalent to display:none)."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute specifies the tab order of an element using keyboard navigation?", "o": ["tabindex", "keyorder", "focusorder", "tab"], "a": 0, "e": "tabindex=\"0\" includes element in tab order. Negative values remove it. Positive sets explicit order."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 feature allows web pages to receive messages from other windows?", "o": ["postMessage API", "window.send()", "crossOriginMessage", "IPC API"], "a": 0, "e": "window.postMessage() enables safe cross-origin communication between frames and windows."}, {"s": "HTML5 Features", "d": "hard", "q": "Which element is used to embed Flash or other plugin content (now obsolete)?", "o": ["<plugin>", "<flash>", "<object>", "<embed>"], "a": 2, "e": "<object> was used to embed external resources and plugins. It's largely obsolete since Flash died."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 global attribute sets the language used for spell-checking inside editable content?", "o": ["spellcheck", "lang", "language", "check"], "a": 0, "e": "spellcheck=\"true\" enables browser spell-checking on input fields and contenteditable elements."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 attribute on a `<link>` element makes it apply only in dark mode?", "o": ["darkmode", "prefers-dark", "media=\"(prefers-color-scheme: dark)\"", "theme=\"dark\""], "a": 2, "e": "Using media=\"(prefers-color-scheme: dark)\" on <link rel=\"stylesheet\"> applies that CSS only in dark mode."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 element represents an interactive widget that is not a form, link, or button by default?", "o": ["<widget>", "<interactive>", "<dialog>", "<popup>"], "a": 2, "e": "<dialog> creates a native modal dialog box. JS showModal() opens it as a modal overlay."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on `<dialog>` makes it visible by default without JS?", "o": ["visible", "show", "open", "display"], "a": 2, "e": "The open attribute on <dialog> makes it visible without calling showModal() from JavaScript."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 interface enables bidirectional real-time communication in the browser?", "o": ["Ajax", "EventSource", "WebSocket", "Long-Polling"], "a": 2, "e": "WebSocket (new WebSocket(url)) provides full-duplex, low-latency communication over a single TCP connection."}, {"s": "HTML5 Features", "d": "hard", "q": "Which HTML5 API allows accessing device geolocation?", "o": ["navigator.location", "window.gps", "navigator.geolocation", "location.coords"], "a": 2, "e": "navigator.geolocation.getCurrentPosition() requests the user's location with their permission."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute prevents the browser from automatically translating element content?", "o": ["notranslate", "translate=\"no\"", "lang=\"none\"", "nolang"], "a": 1, "e": "translate=\"no\" hints to browsers and translation tools not to translate that element's content."}, {"s": "HTML5 Features", "d": "hard", "q": "Which meta tag prevents search engines from indexing a page?", "o": ["<meta name=\"robots\" content=\"noindex\">", "<meta name=\"search\" content=\"off\">", "<meta name=\"index\" content=\"false\">", "<meta name=\"crawl\" content=\"no\">"], "a": 0, "e": "<meta name=\"robots\" content=\"noindex\"> instructs search engine crawlers not to index the page."}, {"s": "HTML5 Features", "d": "hard", "q": "Which attribute on any element triggers a context menu defined by a `<menu>` element?", "o": ["contextmenu", "rightclick", "menu", "popup"], "a": 0, "e": "contextmenu=\"menu-id\" linked an element to a <menu> for right-click menus (deprecated in most browsers)."}, {"s": "Semantic HTML", "d": "easy", "q": "Which semantic element wraps the primary unique content of a page?", "o": ["<section>", "<div>", "<main>", "<content>"], "a": 2, "e": "<main> should appear once per page and wraps the dominant content, excluding headers, footers, and navs."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element defines a self-contained distributable piece of content?", "o": ["<section>", "<aside>", "<div>", "<article>"], "a": 3, "e": "<article> makes sense standalone (blog post, news article, forum post). It can be syndicated independently."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element represents tangentially related content like a sidebar?", "o": ["<sidebar>", "<aside>", "<nav>", "<section>"], "a": 1, "e": "<aside> holds content related but not central to the main flow — sidebars, pull quotes, ads."}, {"s": "Semantic HTML", "d": "easy", "q": "Which element defines a set of navigation links?", "o": ["<navigation>", "<menu>", "<nav>", "<links>"], "a": 2, "e": "<nav> wraps major navigation link blocks. Not every group of links needs <nav> — only primary ones."}, {"s": "Semantic HTML", "d": "easy", "q": "Which element represents introductory content at the top of a page?", "o": ["<top>", "<banner>", "<header>", "<head>"], "a": 2, "e": "<header> typically holds the logo, site title, and primary navigation. It can appear in <article> too."}, {"s": "Semantic HTML", "d": "easy", "q": "Which element represents a footer for a section or whole page?", "o": ["<bottom>", "<footer>", "<end>", "<foot>"], "a": 1, "e": "<footer> holds copyright, contact info, site links. It can appear inside <article> or <section> too."}, {"s": "Semantic HTML", "d": "medium", "q": "What is the semantic purpose of the `<figure>` element?", "o": ["Display charts only", "Group self-contained media with an optional caption", "Create a bordered box", "Define a paragraph with an image"], "a": 1, "e": "<figure> wraps self-contained content like images, diagrams, or code. <figcaption> provides its caption."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element provides a caption for a `<figure>`?", "o": ["<caption>", "<alt>", "<figcaption>", "<legend>"], "a": 2, "e": "<figcaption> is a direct child of <figure> and describes the media content inside."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element marks text that has been deleted from the document?", "o": ["<del>", "<strike>", "<removed>", "<s>"], "a": 0, "e": "<del> marks removed text (often rendered with strikethrough). Use datetime attribute to timestamp the deletion."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element marks text that is no longer accurate without implying deletion?", "o": ["<del>", "<strike>", "<s>", "<outdated>"], "a": 2, "e": "<s> represents content that is no longer relevant (price reduction, canceled text) without editorial meaning."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element is a thematic grouping of content typically with a heading?", "o": ["<article>", "<div>", "<section>", "<group>"], "a": 2, "e": "<section> groups related content thematically. It typically starts with a heading (<h2>-<h6>)."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element marks an abbreviation with an optional title for the full form?", "o": ["<short>", "<acronym>", "<abbr>", "<abbrev>"], "a": 2, "e": "<abbr title=\"HyperText Markup Language\">HTML<\/abbr> shows the expansion on hover."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents a specific machine-readable time or date?", "o": ["<date>", "<clock>", "<time>", "<when>"], "a": 2, "e": "<time datetime=\"2024-01-15\">January 15<\/time> makes dates parseable by machines and search engines."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents sample output from a computer program?", "o": ["<code>", "<pre>", "<samp>", "<kbd>"], "a": 2, "e": "<samp> marks text as output from a computer program, typically rendered in monospace."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents user keyboard input?", "o": ["<code>", "<input>", "<kbd>", "<key>"], "a": 2, "e": "<kbd> marks keyboard input. Example: Press <kbd>Ctrl<\/kbd>+<kbd>C<\/kbd> to copy."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element highlights text for reference or attention purposes?", "o": ["<highlight>", "<mark>", "<em>", "<span>"], "a": 1, "e": "<mark> highlights text for reference, like search results. Rendered with a yellow background by default."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element is used for a long block quotation from another source?", "o": ["<q>", "<quote>", "<blockquote>", "<cite>"], "a": 2, "e": "<blockquote cite=\"url\"> is for extended quotations. The cite attribute credits the source URL."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element is used for a short inline quotation?", "o": ["<blockquote>", "<q>", "<cite>", "<quote>"], "a": 1, "e": "<q> wraps short inline quotes. Browsers automatically add quotation marks around its content."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element references the title of a creative work (book, film, song)?", "o": ["<title>", "<em>", "<i>", "<cite>"], "a": 3, "e": "<cite> semantically references the title of a work (book, song, movie). Rendered in italic by default."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents a superscript?", "o": ["<sup>", "<sub>", "<small>", "<span>"], "a": 0, "e": "<sup> renders text above the text line — used for footnotes (reference[1]) and math exponents (x²)."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents a subscript?", "o": ["<sup>", "<sub>", "<small>", "<lower>"], "a": 1, "e": "<sub> renders text below the text line — common in chemical formulas like H₂O."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element marks text as an inline code snippet?", "o": ["<pre>", "<samp>", "<code>", "<var>"], "a": 2, "e": "<code> represents a fragment of computer code, rendered in a monospace font by default."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents a mathematical or programming variable?", "o": ["<var>", "<val>", "<v>", "<param>"], "a": 0, "e": "<var> marks variables in math or code contexts. Rendered in italics by default."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element represents the contact information of a document or article author?", "o": ["<contact>", "<author>", "<address>", "<info>"], "a": 2, "e": "<address> provides contact information for the nearest <article> or <body> ancestor."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents text that is inserted/added to the document?", "o": ["<add>", "<new>", "<ins>", "<insert>"], "a": 2, "e": "<ins> marks newly inserted text, often shown underlined. Use datetime attribute to timestamp the change."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element represents small print (fine print, legal disclaimers)?", "o": ["<fine>", "<tiny>", "<small>", "<legal>"], "a": 2, "e": "<small> represents side comments like fine print. It reduces font size and implies lower importance."}, {"s": "Semantic HTML", "d": "hard", "q": "What element defines a term in a description list?", "o": ["<li>", "<dt>", "<dd>", "<term>"], "a": 1, "e": "<dt> (definition term) defines a term in a <dl> (description list). Paired with <dd> for the definition."}, {"s": "Semantic HTML", "d": "hard", "q": "What element provides the description/value for a term in a description list?", "o": ["<dt>", "<desc>", "<dd>", "<def>"], "a": 2, "e": "<dd> (definition description) follows <dt> and provides the explanation or value for the term."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element is used as a language-level paragraph break in East Asian typography?", "o": ["<wbr>", "<bdi>", "<rp>", "<rb>"], "a": 3, "e": "<rb> (ruby base) marks the base text in ruby annotations used in East Asian typography."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element provides ruby annotation text (shown above base characters)?", "o": ["<ruby>", "<rt>", "<rp>", "<annotation>"], "a": 1, "e": "<rt> provides the pronunciation or explanation shown above/beside the base character in <ruby>."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element marks text that might be safely word-wrapped at that point?", "o": ["<br>", "<softbreak>", "<wbr>", "<wrap>"], "a": 2, "e": "<wbr> (Word Break Opportunity) hints where the browser may break a long word if needed."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element isolates a span of text that might be formatted in a different direction?", "o": ["<bdo>", "<bdi>", "<dir>", "<isolate>"], "a": 1, "e": "<bdi> (Bidirectional Isolation) isolates text whose direction is unknown to prevent formatting issues."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element overrides text directionality explicitly?", "o": ["<bdi>", "<bdo>", "<dir>", "<rtl>"], "a": 1, "e": "<bdo dir=\"rtl\"> forces the text direction, overriding the inherited Unicode bidi algorithm."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element acts as a generic non-semantic inline wrapper?", "o": ["<div>", "<section>", "<span>", "<inline>"], "a": 2, "e": "<span> is an inline element with no semantic meaning, used purely for styling or scripting hooks."}, {"s": "Semantic HTML", "d": "medium", "q": "Which element acts as a generic non-semantic block-level wrapper?", "o": ["<block>", "<section>", "<span>", "<div>"], "a": 3, "e": "<div> is a block-level container used to group content for layout purposes without any semantic value."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element is used to associate a dialog, popup, or panel with a related element?", "o": ["<dialog>", "<popup>", "<panel>", "<aside>"], "a": 0, "e": "<dialog> creates an interactive modal or non-modal dialog. Use JS methods open(), showModal() to control."}, {"s": "Semantic HTML", "d": "hard", "q": "Which semantic element represents a self-contained region of content on a page, like a widget?", "o": ["<region>", "<widget>", "<section>", "<article>"], "a": 3, "e": "<article> represents any standalone content that could be reused or syndicated independently."}, {"s": "Semantic HTML", "d": "hard", "q": "What attribute on any element defines its ARIA role for accessibility?", "o": ["role", "aria", "label", "type"], "a": 0, "e": "role=\"button\" or role=\"navigation\" assigns a semantic ARIA role to elements that lack native semantics."}, {"s": "Semantic HTML", "d": "hard", "q": "Which ARIA attribute provides an accessible label when no visible label exists?", "o": ["aria-label", "aria-title", "aria-name", "aria-text"], "a": 0, "e": "aria-label=\"Close menu\" provides a text label for screen readers when no visible label is present."}, {"s": "Semantic HTML", "d": "hard", "q": "Which ARIA attribute points to another element's id to use it as the accessible label?", "o": ["aria-link", "aria-ref", "aria-labelledby", "aria-for"], "a": 2, "e": "aria-labelledby=\"heading-id\" makes screen readers use the text of the referenced element as the label."}, {"s": "Semantic HTML", "d": "hard", "q": "Which ARIA attribute marks an element as hidden from assistive technologies?", "o": ["aria-visible=\"false\"", "aria-hidden=\"true\"", "aria-skip", "aria-mute"], "a": 1, "e": "aria-hidden=\"true\" removes an element from the accessibility tree (decorative icons, etc.)."}, {"s": "Semantic HTML", "d": "hard", "q": "Which ARIA attribute indicates whether an expandable widget is currently expanded?", "o": ["aria-open", "aria-visible", "aria-expanded", "aria-show"], "a": 2, "e": "aria-expanded=\"true\" or \"false\" tells screen readers whether a collapsible section is open or closed."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element provides a machine-readable name for a person, organization, or place?", "o": ["<entity>", "<name>", "<data>", "<span>"], "a": 2, "e": "<data value=\"machine-value\"> provides machine-readable information alongside human-readable text."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element provides a way to associate structured microdata on the page?", "o": ["<micro>", "<schema>", "<span itemscope>", "<data>"], "a": 2, "e": "itemscope, itemtype, and itemprop attributes on any element add Schema.org microdata for SEO."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element semantically represents a navigation breadcrumb?", "o": ["There is no specific element", "<breadcrumb>", "<crumb>", "<path>"], "a": 0, "e": "HTML has no specific breadcrumb element. Use <nav aria-label=\"breadcrumb\"> with an <ol> list instead."}, {"s": "Semantic HTML", "d": "hard", "q": "What is the correct semantic structure for a blog post with a title, content, and comments?", "o": ["<div> wrapping everything", "<article> with <header>, <section>, and <section> for comments", "<section> with <h1> and <p>", "<main> with nested <div>s"], "a": 1, "e": "<article> wraps the whole post. <header> holds the title, body in <section>, comments in nested <article>s."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element should wrap the site logo and main navigation?", "o": ["<div id='header'>", "<top>", "<header>", "<banner>"], "a": 2, "e": "<header> is the correct semantic element for introductory content. A page can have multiple <header>s in different sections."}, {"s": "Semantic HTML", "d": "hard", "q": "What does the `hidden` global attribute do semantically?", "o": ["Makes element invisible only", "Hides element from both visual display and accessibility tree", "Only hides from screen readers", "Applies display:hidden CSS"], "a": 1, "e": "hidden removes the element from rendering AND from the accessibility tree — stronger than CSS visibility:hidden."}, {"s": "Semantic HTML", "d": "hard", "q": "Which element is correct for site-wide legal links typically found at the bottom of every page?", "o": ["<div class='footer'>", "<footer>", "<section>", "<aside>"], "a": 1, "e": "<footer> is the semantic element for site-wide bottom content like copyright, legal links, and contact info."}, {"s": "Semantic HTML", "d": "hard", "q": "What is the semantic difference between `<section>` and `<article>`?", "o": ["No difference", "<article> is self-contained and re-usable; <section> is a thematic grouping of related content", "<section> is for external content", "<article> requires <h1>"], "a": 1, "e": "<article> can stand alone (syndicated). <section> groups related content within a larger context (always needs a heading)."}, {"s": "Tables & Lists", "d": "easy", "q": "Which tag creates an HTML table?", "o": ["<tab>", "<td>", "<table>", "<grid>"], "a": 2, "e": "<table> is the container element for all table content including rows, cells, and headers."}, {"s": "Tables & Lists", "d": "easy", "q": "Which tag defines a table row?", "o": ["<td>", "<tr>", "<row>", "<th>"], "a": 1, "e": "<tr> (table row) wraps all cells in a single horizontal row of the table."}, {"s": "Tables & Lists", "d": "easy", "q": "Which tag defines a table header cell?", "o": ["<thead>", "<header>", "<th>", "<hcell>"], "a": 2, "e": "<th> creates a header cell. It renders bold and centered by default. Use scope attribute for accessibility."}, {"s": "Tables & Lists", "d": "medium", "q": "Which attribute makes a table cell span multiple columns?", "o": ["colspan", "rowspan", "cellspan", "span"], "a": 0, "e": "colspan=\"3\" makes a cell stretch across 3 columns, merging them horizontally."}, {"s": "Tables & Lists", "d": "medium", "q": "Which attribute makes a table cell span multiple rows?", "o": ["colspan", "rowspan", "cellspan", "span"], "a": 1, "e": "rowspan=\"2\" makes a cell stretch across 2 rows, merging them vertically."}, {"s": "Tables & Lists", "d": "medium", "q": "Which element provides a visible caption for an HTML table?", "o": ["<title>", "<caption>", "<th>", "<thead>"], "a": 1, "e": "<caption> is the first child of <table> and provides a title/description displayed above the table."}, {"s": "Tables & Lists", "d": "medium", "q": "Which element wraps the body rows of a table for semantic grouping?", "o": ["<tbody>", "<body>", "<rows>", "<tgroup>"], "a": 0, "e": "<tbody> wraps the main data rows of a table. Browsers add it automatically even if omitted."}, {"s": "Tables & Lists", "d": "easy", "q": "Which list type automatically numbers its items?", "o": ["<ul>", "<dl>", "<ol>", "<nl>"], "a": 2, "e": "<ol> (ordered list) renders items with sequential numbers by default."}, {"s": "Tables & Lists", "d": "medium", "q": "In a definition list, which tag defines the term?", "o": ["<li>", "<dt>", "<dl>", "<dd>"], "a": 1, "e": "<dt> (definition term) names a term. It is paired with one or more <dd> elements."}, {"s": "Tables & Lists", "d": "medium", "q": "In a definition list, which tag holds the description of a term?", "o": ["<dt>", "<desc>", "<dl>", "<dd>"], "a": 3, "e": "<dd> (definition description) provides the definition or explanation for the preceding <dt>."}, {"s": "Tables & Lists", "d": "medium", "q": "Which element wraps header row(s) of a table?", "o": ["<th>", "<thead>", "<header>", "<trow>"], "a": 1, "e": "<thead> groups header rows. When the table is printed, <thead> repeats on each page."}, {"s": "Tables & Lists", "d": "medium", "q": "Which element wraps footer row(s) of a table?", "o": ["<foot>", "<tfooter>", "<tfoot>", "<footer>"], "a": 2, "e": "<tfoot> groups footer rows (totals, summaries). Like <thead>, it can repeat on printed pages."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<ol>` changes the starting number?", "o": ["begin", "from", "offset", "start"], "a": 3, "e": "start=\"5\" on <ol> makes the list begin counting from 5 instead of 1."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<ol>` reverses the numbering?", "o": ["reverse", "flip", "desc", "backward"], "a": 0, "e": "reversed on <ol> makes items count down (5, 4, 3...) instead of up."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<ol>` sets the list style type?", "o": ["list-style", "style", "type", "format"], "a": 2, "e": "type=\"A\" gives uppercase letters, type=\"a\" lowercase, type=\"I\" Roman numerals, type=\"1\" (default) numbers."}, {"s": "Tables & Lists", "d": "hard", "q": "Which tag wraps a group of table columns to apply shared styling?", "o": ["<colgroup>", "<cols>", "<cgroup>", "<columns>"], "a": 0, "e": "<colgroup> groups one or more columns. Apply style or span attribute to style whole columns at once."}, {"s": "Tables & Lists", "d": "hard", "q": "Which element defines a single column within `<colgroup>`?", "o": ["<column>", "<col>", "<tc>", "<cell>"], "a": 1, "e": "<col span=\"2\"> inside <colgroup> targets 2 consecutive columns for styling."}, {"s": "Tables & Lists", "d": "medium", "q": "Which tag defines a description list container?", "o": ["<ul>", "<ol>", "<dl>", "<list>"], "a": 2, "e": "<dl> (description list) contains <dt>/<dd> pairs and is used for glossaries, metadata, FAQs."}, {"s": "Tables & Lists", "d": "hard", "q": "Which `<th>` attribute defines whether it is a header for a row or column?", "o": ["scope", "axis", "headers", "role"], "a": 0, "e": "scope=\"col\" targets the column below, scope=\"row\" targets the row to the right — vital for accessibility."}, {"s": "Tables & Lists", "d": "hard", "q": "Which legacy table attribute set spacing between cells?", "o": ["cellpadding", "cellspacing", "gap", "spacing"], "a": 1, "e": "cellspacing set the gaps between cells. It's now deprecated — use CSS border-collapse and border-spacing instead."}, {"s": "Tables & Lists", "d": "hard", "q": "Which legacy attribute set padding inside each table cell?", "o": ["cellpadding", "cellspacing", "gap", "padding"], "a": 0, "e": "cellpadding set inner padding of each cell. Now deprecated — use CSS padding on <td> or <th> instead."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<td>` links data cells to their header cell by id for accessibility?", "o": ["scope", "aria-header", "headers", "for"], "a": 2, "e": "headers=\"th-id\" on <td> explicitly associates the cell with one or more header cells by their id values."}, {"s": "Tables & Lists", "d": "medium", "q": "Which attribute on a `<li>` overrides the counter value for that specific list item?", "o": ["count", "number", "index", "value"], "a": 3, "e": "value=\"7\" on <li> inside <ol> sets that item's number to 7, continuing from 8 for the next item."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS-equivalent HTML attribute on `<table>` set the border width (now deprecated)?", "o": ["border-width", "stroke", "border", "outline"], "a": 2, "e": "border=\"1\" on <table> drew a 1px border around the table and cells. Now handled entirely by CSS."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<table>` specified the width of the table (now deprecated)?", "o": ["width", "size", "w", "extent"], "a": 0, "e": "width=\"100%\" on <table> set its width. Now use CSS width property instead."}, {"s": "Tables & Lists", "d": "hard", "q": "Which value of `<table>` rules attribute shows only lines between rows?", "o": ["rows", "cols", "all", "groups"], "a": 0, "e": "rules=\"rows\" draws dividers only between rows. rules=\"cols\" between columns, rules=\"all\" everywhere."}, {"s": "Tables & Lists", "d": "hard", "q": "What is the purpose of `<colgroup span='3'>` on a table?", "o": ["It spans 3 rows", "It spans 3 columns with one rule", "It applies styles to the first 3 columns", "It creates 3 column headers"], "a": 2, "e": "<colgroup span=\"3\"> targets the first 3 columns as a group, allowing a single style rule for all three."}, {"s": "Tables & Lists", "d": "medium", "q": "Which element is used as the container for ALL table structure elements?", "o": ["<section>", "<table>", "<grid>", "<data>"], "a": 1, "e": "<table> is the root container. All tr, th, td, thead, tbody, and tfoot elements go inside it."}, {"s": "Tables & Lists", "d": "medium", "q": "Can a `<th>` element appear inside `<tbody>`?", "o": ["No, only in <thead>", "Yes, with scope='row' for row headers", "Only in the first column", "Only in <tfoot>"], "a": 1, "e": "<th scope=\"row\"> in <tbody> is valid and accessible — it marks the leftmost cell as a row header."}, {"s": "Tables & Lists", "d": "hard", "q": "What happens when you omit `<tbody>` from a table in HTML?", "o": ["Error", "Table doesn't render", "Browser inserts <tbody> automatically", "Rows go directly under <table>"], "a": 2, "e": "Browsers auto-insert <tbody> around <tr> elements when it's omitted. The DOM always has a tbody."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<ul>` or `<ol>` was used to set a custom list marker (now deprecated)?", "o": ["bullet", "type", "marker", "style"], "a": 1, "e": "type=\"circle\" or type=\"square\" on <ul> set bullet style. Now use CSS list-style-type instead."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS property is the modern replacement for the `type` attribute on lists?", "o": ["list-marker", "bullet-style", "list-style-type", "list-type"], "a": 2, "e": "CSS list-style-type: upper-roman replaces the HTML type attribute for controlling list counters/markers."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS property makes a list not show any bullet or number?", "o": ["list-style-type: zero", "list-style-type: hidden", "list-style-type: none", "list-style: off"], "a": 2, "e": "list-style-type: none removes bullets from <ul> and numbers from <ol>."}, {"s": "Tables & Lists", "d": "hard", "q": "What is a description list most semantically appropriate for?", "o": ["Product categories", "Navigation menus", "Glossaries, key-value pairs, FAQs", "Numbered steps"], "a": 2, "e": "<dl> is ideal for glossaries (term + definition), metadata (key: value), and FAQ (question + answer) layouts."}, {"s": "Tables & Lists", "d": "hard", "q": "How many `<dd>` elements can follow a single `<dt>` in a description list?", "o": ["Only one", "Exactly two", "As many as needed", "None — dd must come before dt"], "a": 2, "e": "One <dt> can be followed by multiple <dd> elements, for example listing multiple definitions of one term."}, {"s": "Tables & Lists", "d": "hard", "q": "Which table element is rendered visually identical to `<td>` but is semantically a header?", "o": ["<th>", "<thead>", "<tr>", "<tc>"], "a": 0, "e": "<th> and <td> look similar but <th> has semantic meaning (it's a header cell), important for screen readers."}, {"s": "Tables & Lists", "d": "hard", "q": "What does the `summary` attribute on `<table>` provide? (deprecated in HTML5)", "o": ["A caption shown above", "An accessible description for screen readers", "A tooltip on hover", "A download summary"], "a": 1, "e": "summary was used to describe table structure for screen readers. It's now deprecated — use <caption> instead."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<col>` applies a style to every Nth column?", "o": ["span", "count", "every", "repeat"], "a": 0, "e": "span=\"2\" on <col> applies the column's properties to 2 consecutive columns."}, {"s": "Tables & Lists", "d": "hard", "q": "Can a table be nested inside a `<td>` element?", "o": ["No, never", "Yes, nested tables are valid HTML", "Only in HTML4", "Only with class='nested'"], "a": 1, "e": "Tables can be nested inside <td> elements. It's valid HTML though generally discouraged for layout purposes."}, {"s": "Tables & Lists", "d": "hard", "q": "Which HTML structure creates a two-column key-value layout best semantically?", "o": ["<table> with two <td>s", "<dl> with <dt> and <dd>", "<ul> with two <li>s", "<div> with two <span>s"], "a": 1, "e": "<dl><dt>Key<\/dt><dd>Value<\/dd><\/dl> is the most semantic structure for key-value pairs."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<table>` defined the alignment of cell content? (deprecated)", "o": ["align", "valign", "text-align", "justify"], "a": 0, "e": "align=\"center\" on <table>, <tr>, <td> was used for alignment but is now deprecated — use CSS text-align."}, {"s": "Tables & Lists", "d": "hard", "q": "What is the correct order of structural table elements inside `<table>`?", "o": ["thead, tfoot, tbody", "tbody, thead, tfoot", "thead, tbody, tfoot", "tfoot, thead, tbody"], "a": 0, "e": "Correct order is <thead>, then optionally <tfoot>, then <tbody>. Browsers re-render tfoot at the bottom regardless."}, {"s": "Tables & Lists", "d": "hard", "q": "Which element was used in HTML4 for frameset-based layouts but is now obsolete?", "o": ["<frame>", "<frameset>", "<iframe>", "All of A and B"], "a": 3, "e": "<frameset> and <frame> are obsolete in HTML5. <iframe> is still valid for embedding external content."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS display value makes a `<div>` behave like a table?", "o": ["display: grid", "display: table", "display: block-table", "display: flex"], "a": 1, "e": "display: table makes a <div> act as a <table>, allowing children with display: table-cell to align in columns."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS property is used for modern grid-based two-dimensional layouts (replacing table layouts)?", "o": ["display: table", "display: flex", "display: grid", "display: columns"], "a": 2, "e": "CSS Grid (display: grid) is the modern standard for two-dimensional layouts, replacing table-based layouts."}, {"s": "Tables & Lists", "d": "hard", "q": "Which ARIA role should be added to a `<div>` that visually acts as a table?", "o": ["role=\"data\"", "role=\"table\"", "role=\"grid\"", "role=\"list\""], "a": 1, "e": "role=\"table\" with role=\"row\" and role=\"cell\" on children makes a div-based table accessible."}, {"s": "Tables & Lists", "d": "hard", "q": "Which attribute on `<ol>` or `<li>` was used to set the list style type?", "o": ["marker", "type", "style", "bullet"], "a": 1, "e": "type=\"I\" (Roman), \"A\" (uppercase letters), \"a\" (lowercase) were set on <ol> or individual <li> elements."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS property lets you use a custom image as a list bullet?", "o": ["list-style-image", "bullet-image", "list-icon", "list-background"], "a": 0, "e": "list-style-image: url('bullet.png') sets a custom image as the list marker for <ul> or <ol>."}, {"s": "Tables & Lists", "d": "hard", "q": "What does `border-collapse: collapse` do to a table in CSS?", "o": ["Removes the table", "Makes borders share a single line instead of doubling", "Hides the table borders", "Collapses empty rows"], "a": 1, "e": "border-collapse: collapse merges adjacent cell borders into one line, eliminating double-borders."}, {"s": "Tables & Lists", "d": "hard", "q": "What is the default value of `border-collapse` for HTML tables?", "o": ["collapse", "merge", "separate", "none"], "a": 2, "e": "The default is border-collapse: separate, which means each cell has its own border with a gap between them."}, {"s": "Tables & Lists", "d": "hard", "q": "Which CSS property sets the gap between table cells when `border-collapse` is `separate`?", "o": ["cell-gap", "table-gap", "border-spacing", "cell-spacing"], "a": 2, "e": "border-spacing: 4px sets horizontal and vertical space between cells (replaces cellspacing attribute)."}]</script>
 <script>
-// Escape HTML so tags like <html> show as text, not parsed
-function esc(s) {
-  return String(s)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
+// ── HELPERS ──
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function fmt(s){return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>');}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+// ── SOUND ──
+let soundOn=true;
+const AC=window.AudioContext||window.webkitAudioContext;
+let ac=null;
+function getAC(){if(!ac&&AC)ac=new AC();return ac;}
+function beep(freq,dur,type='sine',vol=0.18){
+  try{const a=getAC();if(!a||!soundOn)return;
+  const o=a.createOscillator(),g=a.createGain();
+  o.connect(g);g.connect(a.destination);
+  o.type=type;o.frequency.value=freq;
+  g.gain.setValueAtTime(vol,a.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+dur);
+  o.start();o.stop(a.currentTime+dur);}catch(e){}
 }
-// Convert backtick pairs to <code> after escaping
-function fmt(s) {
-  return esc(s).replace(/`([^`]+)`/g,'<code>$1</code>');
+function playCorrect(){beep(660,.12);setTimeout(()=>beep(880,.18),100);}
+function playWrong(){beep(220,.25,'sawtooth',.12);}
+function playSkip(){beep(440,.15,'triangle',.1);}
+function playTick(){beep(800,.04,'square',.05);}
+function playTimeUp(){beep(300,.4,'sawtooth',.15);}
+function toggleSound(){
+  soundOn=!soundOn;
+  document.getElementById('sound-pill').classList.toggle('on',soundOn);
+  document.getElementById('sound-icon').textContent=soundOn?'🔊':'🔇';
 }
 
-const Q = [
-  // ── BASIC TAGS & STRUCTURE (20) ──
-  {s:"Basic Tags & Structure",d:"easy",  q:"What does HTML stand for?",o:["Hyper Text Markup Language","High Transfer Markup Language","Hyper Transfer Machine Language","Hyper Text Machine Level"],a:0},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag defines the root element of an HTML document?",o:["<head>","<body>","<html>","<root>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag defines the document title shown in the browser tab?",o:["<meta>","<title>","<header>","<caption>"],a:1},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which HTML tag creates the largest heading?",o:["<h6>","<heading>","<h1>","<head>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag creates a hyperlink?",o:["<link>","<href>","<a>","<url>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"What is the correct tag to insert a line break?",o:["<lb>","<break>","<br>","<newline>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag creates an unordered (bulleted) list?",o:["<ol>","<list>","<ul>","<dl>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag defines a list item?",o:["<item>","<li>","<dt>","<ls>"],a:1},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which attribute specifies the destination URL of a hyperlink?",o:["src","url","link","href"],a:3},
-  {s:"Basic Tags & Structure",d:"medium",q:"Which attribute value makes a link open in a new browser tab?",o:["target=\"_blank\"","target=\"_new\"","target=\"_tab\"","open=\"new\""],a:0},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag embeds an image on a page?",o:["<picture>","<image>","<img>","<photo>"],a:2},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which attribute provides alternate text for an image?",o:["title","alt","desc","caption"],a:1},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag draws a horizontal dividing line?",o:["<hr>","<line>","<hl>","<hline>"],a:0},
-  {s:"Basic Tags & Structure",d:"medium",q:"What is the semantic difference between `<b>` and `<strong>`?",o:["No difference","<strong> implies importance; <b> is purely stylistic","<b> implies importance; <strong> is stylistic","<strong> is deprecated in HTML5"],a:1},
-  {s:"Basic Tags & Structure",d:"easy",  q:"What declaration must appear at the very beginning of an HTML5 document?",o:["<html>","<!DOCTYPE html>","<head>","<!-- HTML5 -->"],a:1},
-  {s:"Basic Tags & Structure",d:"easy",  q:"Which tag defines a paragraph?",o:["<par>","<pg>","<p>","<para>"],a:2},
-  {s:"Basic Tags & Structure",d:"medium",q:"What is the semantic difference between `<i>` and `<em>`?",o:["No difference","<em> stresses emphasis; <i> is stylistic","<i> stresses emphasis; <em> is stylistic","<em> is deprecated"],a:1},
-  {s:"Basic Tags & Structure",d:"medium",q:"Which tag defines metadata about the HTML document?",o:["<data>","<info>","<meta>","<head>"],a:2},
-  {s:"Basic Tags & Structure",d:"hard",  q:"Which attribute on `<meta>` sets the character encoding for the page?",o:["encoding","lang","charset","type"],a:2},
-  {s:"Basic Tags & Structure",d:"hard",  q:"Which tag defines a block of preformatted text that preserves whitespace?",o:["<code>","<pre>","<samp>","<kbd>"],a:1},
+// ── FULL QUESTION BANK (300 questions) ──
+const BANK=JSON.parse(document.getElementById("qdata").textContent);
 
-  // ── FORMS & INPUTS (20) ──
-  {s:"Forms & Inputs",d:"easy",  q:"Which tag is used to create an HTML form?",o:["<input>","<form>","<fieldset>","<submit>"],a:1},
-  {s:"Forms & Inputs",d:"easy",  q:"Which input type creates a checkbox?",o:["type=\"check\"","type=\"checkbox\"","type=\"tick\"","type=\"bool\""],a:1},
-  {s:"Forms & Inputs",d:"medium",q:"Which attribute groups radio buttons so only one can be selected at a time?",o:["id","value","name","group"],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"What does the `for` attribute on `<label>` link to?",o:["The form name","The id of an input","The action URL","The input value"],a:1},
-  {s:"Forms & Inputs",d:"easy",  q:"Which element creates a multi-line text input?",o:["<input type=\"multiline\">","<text>","<textarea>","<input type=\"textarea\">"],a:2},
-  {s:"Forms & Inputs",d:"easy",  q:"Which attribute prevents a form field from being submitted empty?",o:["required","notempty","mandatory","validate"],a:0},
-  {s:"Forms & Inputs",d:"medium",q:"What is the default HTTP method of a form if no `method` attribute is set?",o:["POST","PUT","GET","DELETE"],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"Which input type shows a native color picker?",o:["type=\"colour\"","type=\"color\"","type=\"picker\"","type=\"hex\""],a:1},
-  {s:"Forms & Inputs",d:"easy",  q:"Which element creates a drop-down selection list?",o:["<list>","<datalist>","<dropdown>","<select>"],a:3},
-  {s:"Forms & Inputs",d:"medium",q:"Which attribute specifies the URL where form data is sent on submission?",o:["method","target","action","href"],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"Which element groups related form controls with a visible border?",o:["<formgroup>","<group>","<fieldset>","<section>"],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"Which element provides a caption or title for a `<fieldset>`?",o:["<title>","<label>","<legend>","<caption>"],a:2},
-  {s:"Forms & Inputs",d:"hard",  q:"Which input type creates a hidden field that is submitted but not shown to users?",o:["type=\"invisible\"","type=\"hidden\"","type=\"none\"","type=\"secret\""],a:1},
-  {s:"Forms & Inputs",d:"medium",q:"Which attribute disables a form input so the user cannot interact with it?",o:["readonly","inactive","disabled","blocked"],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"Which attribute makes a text field read-only but still submittable?",o:["disabled","readonly","locked","noedit"],a:1},
-  {s:"Forms & Inputs",d:"hard",  q:"Which input type validates that the entered value is a URL?",o:["type=\"link\"","type=\"website\"","type=\"url\"","type=\"href\""],a:2},
-  {s:"Forms & Inputs",d:"medium",q:"Which attribute sets the maximum number of characters a user can type in an input?",o:["max","limit","maxchars","maxlength"],a:3},
-  {s:"Forms & Inputs",d:"hard",  q:"Which attribute displays hint text inside an input field?",o:["hint","default","placeholder","example"],a:2},
-  {s:"Forms & Inputs",d:"hard",  q:"Which encoding type must be set on a form to support file uploads?",o:["enctype=\"text/plain\"","enctype=\"multipart/form-data\"","enctype=\"application/json\"","enctype=\"binary\""],a:1},
-  {s:"Forms & Inputs",d:"hard",  q:"Which `<button>` type attribute value submits the form?",o:["type=\"send\"","type=\"submit\"","type=\"post\"","type=\"go\""],a:1},
+// ── STATE ──
+let cor=0,wrg=0,skp=0,ans=0;
+let shuffled=[];
+let timerInterval=null;
+let currentTimerQi=-1;
+let timeLeft=30;
+const TOT_PER_QUIZ=shuffled.length;
+const tStats={};
 
-  // ── HTML5 FEATURES (20) ──
-  {s:"HTML5 Features",d:"easy",  q:"Which HTML5 element plays a video file?",o:["<media>","<embed>","<video>","<stream>"],a:2},
-  {s:"HTML5 Features",d:"easy",  q:"Which HTML5 element plays an audio file?",o:["<sound>","<audio>","<mp3>","<media>"],a:1},
-  {s:"HTML5 Features",d:"easy",  q:"Which HTML5 input type validates an email address?",o:["type=\"mail\"","type=\"email-address\"","type=\"email\"","type=\"@\""],a:2},
-  {s:"HTML5 Features",d:"medium",q:"Which HTML5 element draws graphics via JavaScript?",o:["<svg>","<canvas>","<draw>","<graphic>"],a:1},
-  {s:"HTML5 Features",d:"easy",  q:"Which attribute on `<video>` starts playback automatically?",o:["play","autorun","autoplay","start"],a:2},
-  {s:"HTML5 Features",d:"medium",q:"Which HTML5 element shows a native progress bar?",o:["<bar>","<status>","<meter>","<progress>"],a:3},
-  {s:"HTML5 Features",d:"easy",  q:"Which HTML5 input type shows a date picker?",o:["type=\"calendar\"","type=\"datetime\"","type=\"date\"","type=\"day\""],a:2},
-  {s:"HTML5 Features",d:"medium",q:"What is the purpose of the HTML5 `<details>` element?",o:["Adds metadata","Creates a collapsible disclosure widget","Adds caption to a figure","Embeds external content"],a:1},
-  {s:"HTML5 Features",d:"medium",q:"Which attribute on `<input type='range'>` sets the minimum value?",o:["low","floor","start","min"],a:3},
-  {s:"HTML5 Features",d:"medium",q:"Which HTML5 data attribute pattern stores custom data on any element?",o:["custom-*","meta-*","data-*","info-*"],a:2},
-  {s:"HTML5 Features",d:"hard",  q:"Which tag defines a client-side template that is not rendered immediately?",o:["<hidden>","<template>","<noscript>","<fragment>"],a:1},
-  {s:"HTML5 Features",d:"medium",q:"Which HTML5 element represents a scalar value within a known range (like disk usage)?",o:["<progress>","<range>","<meter>","<gauge>"],a:2},
-  {s:"HTML5 Features",d:"hard",  q:"Which HTML5 element represents the result of a calculation?",o:["<result>","<output>","<calc>","<display>"],a:1},
-  {s:"HTML5 Features",d:"hard",  q:"Which attribute on `<script>` defers execution until the HTML is fully parsed?",o:["async","defer","lazy","wait"],a:1},
-  {s:"HTML5 Features",d:"hard",  q:"Which attribute on `<script>` downloads the script asynchronously and runs it immediately?",o:["defer","async","preload","lazy"],a:1},
-  {s:"HTML5 Features",d:"medium",q:"Which element embeds another HTML page inside the current page?",o:["<frame>","<embed>","<iframe>","<include>"],a:2},
-  {s:"HTML5 Features",d:"hard",  q:"Which `<meta>` name value makes a page responsive on mobile devices?",o:["name=\"responsive\"","name=\"viewport\"","name=\"mobile\"","name=\"screen\""],a:1},
-  {s:"HTML5 Features",d:"hard",  q:"Which HTML5 input type allows selecting a time value?",o:["type=\"clock\"","type=\"hour\"","type=\"time\"","type=\"hms\""],a:2},
-  {s:"HTML5 Features",d:"hard",  q:"Which `<img>` attribute enables native lazy loading?",o:["loading=\"defer\"","loading=\"lazy\"","loading=\"slow\"","loading=\"off\""],a:1},
-  {s:"HTML5 Features",d:"hard",  q:"Which element adds an expandable summary row inside `<details>`?",o:["<title>","<label>","<summary>","<caption>"],a:2},
-
-  // ── SEMANTIC HTML (20) ──
-  {s:"Semantic HTML",d:"easy",  q:"Which semantic element wraps the primary unique content of a page?",o:["<section>","<div>","<main>","<content>"],a:2},
-  {s:"Semantic HTML",d:"medium",q:"Which element defines a self-contained piece of content like a blog post?",o:["<section>","<aside>","<div>","<article>"],a:3},
-  {s:"Semantic HTML",d:"medium",q:"Which element represents tangentially related content (e.g. a sidebar)?",o:["<sidebar>","<aside>","<nav>","<section>"],a:1},
-  {s:"Semantic HTML",d:"easy",  q:"Which element defines a set of navigation links?",o:["<navigation>","<menu>","<nav>","<links>"],a:2},
-  {s:"Semantic HTML",d:"easy",  q:"Which element represents introductory content at the top of a page or section?",o:["<top>","<banner>","<header>","<head>"],a:2},
-  {s:"Semantic HTML",d:"easy",  q:"Which element represents a footer for a section or page?",o:["<bottom>","<footer>","<end>","<foot>"],a:1},
-  {s:"Semantic HTML",d:"medium",q:"What is the semantic purpose of the `<figure>` element?",o:["Display charts only","Group self-contained media with an optional caption","Create a bordered box","Define a paragraph with an image"],a:1},
-  {s:"Semantic HTML",d:"medium",q:"Which element provides a caption for a `<figure>`?",o:["<caption>","<alt>","<figcaption>","<legend>"],a:2},
-  {s:"Semantic HTML",d:"hard",  q:"Which element marks text that has been deleted from the document?",o:["<del>","<strike>","<removed>","<s>"],a:0},
-  {s:"Semantic HTML",d:"hard",  q:"Which element marks text that is no longer accurate without implying deletion?",o:["<del>","<strike>","<s>","<outdated>"],a:2},
-  {s:"Semantic HTML",d:"medium",q:"Which element represents a thematic grouping of content, typically with a heading?",o:["<article>","<div>","<section>","<group>"],a:2},
-  {s:"Semantic HTML",d:"medium",q:"Which element marks text as an abbreviation (title attribute gives the expansion)?",o:["<short>","<acronym>","<abbr>","<abbrev>"],a:2},
-  {s:"Semantic HTML",d:"hard",  q:"Which element represents a specific time or date value?",o:["<date>","<clock>","<time>","<when>"],a:2},
-  {s:"Semantic HTML",d:"hard",  q:"Which semantic element represents a piece of computer output?",o:["<code>","<pre>","<samp>","<kbd>"],a:2},
-  {s:"Semantic HTML",d:"hard",  q:"Which element represents user keyboard input?",o:["<code>","<input>","<kbd>","<key>"],a:2},
-  {s:"Semantic HTML",d:"hard",  q:"Which element marks text highlighted or referenced for attention?",o:["<highlight>","<mark>","<em>","<span>"],a:1},
-  {s:"Semantic HTML",d:"medium",q:"Which element is used for a long block quote from another source?",o:["<q>","<quote>","<blockquote>","<cite>"],a:2},
-  {s:"Semantic HTML",d:"medium",q:"Which element is used for a short inline quotation?",o:["<blockquote>","<q>","<cite>","<quote>"],a:1},
-  {s:"Semantic HTML",d:"hard",  q:"Which element references the title of a creative work (book, song, film)?",o:["<title>","<em>","<i>","<cite>"],a:3},
-  {s:"Semantic HTML",d:"hard",  q:"Which element represents a superscript (e.g. footnote numbers or math exponents)?",o:["<sup>","<sub>","<small>","<span>"],a:0},
-
-  // ── TABLES & LISTS (20) ──
-  {s:"Tables & Lists",d:"easy",  q:"Which tag creates an HTML table?",o:["<tab>","<td>","<table>","<grid>"],a:2},
-  {s:"Tables & Lists",d:"easy",  q:"Which tag defines a table row?",o:["<td>","<tr>","<row>","<th>"],a:1},
-  {s:"Tables & Lists",d:"easy",  q:"Which tag defines a table header cell?",o:["<thead>","<header>","<th>","<hcell>"],a:2},
-  {s:"Tables & Lists",d:"medium",q:"Which attribute makes a table cell span multiple columns?",o:["colspan","rowspan","cellspan","span"],a:0},
-  {s:"Tables & Lists",d:"medium",q:"Which attribute makes a table cell span multiple rows?",o:["colspan","rowspan","cellspan","span"],a:1},
-  {s:"Tables & Lists",d:"medium",q:"Which element provides a visible caption for an HTML table?",o:["<title>","<caption>","<th>","<thead>"],a:1},
-  {s:"Tables & Lists",d:"medium",q:"Which element wraps the body rows of a table for semantic grouping?",o:["<tbody>","<body>","<rows>","<tgroup>"],a:0},
-  {s:"Tables & Lists",d:"easy",  q:"Which list type automatically numbers its items?",o:["<ul>","<dl>","<ol>","<nl>"],a:2},
-  {s:"Tables & Lists",d:"medium",q:"In a definition list, which tag defines the term?",o:["<li>","<dt>","<dl>","<dd>"],a:1},
-  {s:"Tables & Lists",d:"medium",q:"In a definition list, which tag holds the description of a term?",o:["<dt>","<desc>","<dl>","<dd>"],a:3},
-  {s:"Tables & Lists",d:"medium",q:"Which element wraps the header row(s) of a table?",o:["<th>","<thead>","<header>","<trow>"],a:1},
-  {s:"Tables & Lists",d:"medium",q:"Which element wraps the footer row(s) of a table?",o:["<foot>","<tfooter>","<tfoot>","<footer>"],a:2},
-  {s:"Tables & Lists",d:"hard",  q:"Which attribute on `<ol>` changes the starting number?",o:["begin","from","offset","start"],a:3},
-  {s:"Tables & Lists",d:"hard",  q:"Which attribute on `<ol>` reverses the numbering?",o:["reverse","flip","desc","backward"],a:0},
-  {s:"Tables & Lists",d:"hard",  q:"Which attribute on `<ol>` sets the list style type (e.g. A, a, I, i)?",o:["list-style","style","type","format"],a:2},
-  {s:"Tables & Lists",d:"hard",  q:"Which tag wraps a group of columns to apply shared styling?",o:["<colgroup>","<cols>","<cgroup>","<columns>"],a:0},
-  {s:"Tables & Lists",d:"hard",  q:"Which element defines properties for a single column inside `<colgroup>`?",o:["<column>","<col>","<tc>","<cell>"],a:1},
-  {s:"Tables & Lists",d:"medium",q:"Which tag defines a description list container?",o:["<ul>","<ol>","<dl>","<list>"],a:2},
-  {s:"Tables & Lists",d:"hard",  q:"Which `<th>` or `<td>` attribute defines whether it is a header for a row or column (accessibility)?",o:["scope","axis","headers","role"],a:0},
-  {s:"Tables & Lists",d:"hard",  q:"Which legacy table attribute set spacing between cells (now replaced by CSS)?",o:["cellpadding","cellspacing","gap","spacing"],a:1},
-];
-
-// State
-let cor=0, wrg=0, ans=0;
-const TOT = Q.length;
-const tStats = {};
-
-function buildQuiz() {
-  const main = document.getElementById('quiz-main');
-  document.querySelectorAll('.sec-head,.q-card').forEach(e=>e.remove());
-  cor=0; wrg=0; ans=0;
+// ── BUILD ──
+function buildQuiz(){
+  clearInterval(timerInterval);
+  cor=0;wrg=0;skp=0;ans=0;
+  shuffled=shuffle([...BANK]);
+  document.getElementById('q-count-meta').textContent=shuffled.length+' Questions · Mixed Difficulty · 30s Timer · Shuffle';
   Object.keys(tStats).forEach(k=>delete tStats[k]);
-  Q.forEach(q=>{ if(!tStats[q.s]) tStats[q.s]={c:0,t:0}; tStats[q.s].t++; });
+  shuffled.forEach(q=>{if(!tStats[q.s])tStats[q.s]={c:0,t:0};tStats[q.s].t++;});
+  const main=document.getElementById('quiz-main');
+  document.querySelectorAll('.sec-head,.q-card').forEach(e=>e.remove());
   document.getElementById('final-panel').style.display='none';
-
-  const fin = document.getElementById('final-panel');
-  let lastS = null;
-
-  Q.forEach((q,i)=>{
+  let lastS=null;
+  const fin=document.getElementById('final-panel');
+  shuffled.forEach((q,i)=>{
     if(q.s!==lastS){
       lastS=q.s;
       const sh=document.createElement('div');
@@ -461,11 +323,7 @@ function buildQuiz() {
       main.insertBefore(sh,fin);
     }
     const L=['A','B','C','D'];
-    const optsHtml=q.o.map((o,j)=>`
-      <button class="opt-btn" onclick="pick(${i},${j})">
-        <span class="opt-letter">${L[j]}</span>
-        <span>${fmt(o)}</span>
-      </button>`).join('');
+    const optsH=q.o.map((o,j)=>`<button class="opt-btn" onclick="pick(${i},${j})"><span class="opt-letter">${L[j]}</span><span>${fmt(o)}</span></button>`).join('');
     const card=document.createElement('div');
     card.className='q-card';
     card.id=`qc${i}`;
@@ -475,69 +333,210 @@ function buildQuiz() {
         <span class="q-text">${fmt(q.q)}</span>
         <span class="diff-pip diff-${q.d}">${q.d}</span>
       </div>
-      <div class="opts" id="opts${i}">${optsHtml}</div>
+      <div class="opts" id="opts${i}">${optsH}</div>
+      <div class="skip-row"><button class="skip-btn" id="skip${i}" onclick="skipQ(${i})">Skip →</button></div>
       <div class="fb-strip" id="fb${i}"></div>`;
     main.insertBefore(card,fin);
   });
   updateBoard();
+  startTimerFor(0);
 }
 
+// ── TIMER ──
+function startTimerFor(qi){
+  clearInterval(timerInterval);
+  if(qi>=shuffled.length)return;
+  const card=document.getElementById(`qc${qi}`);
+  if(!card||card.classList.contains('state-correct')||card.classList.contains('state-wrong')||card.classList.contains('state-skipped'))return;
+
+  // remove active highlight from old
+  document.querySelectorAll('.q-card.active-card').forEach(c=>c.classList.remove('active-card'));
+  if(card){card.classList.add('active-card');card.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+  currentTimerQi=qi;
+  timeLeft=30;
+  renderTimer(30,30);
+
+  timerInterval=setInterval(()=>{
+    timeLeft--;
+    renderTimer(timeLeft,30);
+    if(timeLeft<=5)playTick();
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      playTimeUp();
+      autoSkip(qi);
+    }
+  },1000);
+}
+
+function renderTimer(t,max){
+  const num=document.getElementById('timer-num');
+  const fill=document.getElementById('timer-fill');
+  const ring=document.getElementById('ring-fg');
+  const bar=document.getElementById('timer-bar');
+  num.textContent=t;
+  const pct=(t/max)*100;
+  // linear bar
+  fill.style.width=pct+'%';
+  // SVG ring: dashoffset goes from 0 (full) to 100 (empty)
+  if(ring) ring.style.strokeDashoffset=(100-pct).toString();
+  const warn=t<=8;
+  num.classList.toggle('warn',warn);
+  fill.classList.toggle('warn',warn);
+  if(ring) ring.classList.toggle('warn',warn);
+  if(bar)  bar.classList.toggle('warn-glow',warn);
+}
+
+function nextUnanswered(from){
+  for(let i=from;i<shuffled.length;i++){
+    const c=document.getElementById(`qc${i}`);
+    if(c&&!c.classList.contains('state-correct')&&!c.classList.contains('state-wrong')&&!c.classList.contains('state-skipped'))return i;
+  }
+  return -1;
+}
+
+function autoSkip(qi){
+  const card=document.getElementById(`qc${qi}`);
+  if(!card||card.classList.contains('state-correct')||card.classList.contains('state-wrong')||card.classList.contains('state-skipped'))return;
+  doSkip(qi);
+}
+
+// ── PICK ──
 function pick(qi,oi){
-  const q=Q[qi];
+  const q=shuffled[qi];
   const ow=document.getElementById(`opts${qi}`);
   const fb=document.getElementById(`fb${qi}`);
   const card=document.getElementById(`qc${qi}`);
-  const btns=ow.querySelectorAll('.opt-btn');
-  btns.forEach(b=>b.disabled=true);
+  const sb=document.getElementById(`skip${qi}`);
+  if(!ow||ow.querySelector('.opt-btn:disabled'))return;
+  clearInterval(timerInterval);
+  ow.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  if(sb)sb.disabled=true;
+  card.classList.remove('active-card');
   const ok=(oi===q.a);
-  btns.forEach((b,j)=>{
-    if(j===q.a) b.classList.add('opt-correct');
-    else if(j===oi&&!ok) b.classList.add('opt-wrong');
+  ow.querySelectorAll('.opt-btn').forEach((b,j)=>{
+    if(j===q.a)b.classList.add('opt-correct');
+    else if(j===oi&&!ok)b.classList.add('opt-wrong');
     else b.classList.add('opt-dim');
   });
   fb.classList.add('show');
   if(ok){
     fb.className='fb-strip show fb-ok';
-    fb.innerHTML=`<span class="fb-icon">&#10003;</span><span>Correct!</span>`;
+    fb.innerHTML=`<span class="fb-icon">&#10003;</span><span>Correct!</span><button class="expl-toggle" onclick="toggleExpl(${qi})">Show explanation</button><div class="expl-box" id="expl${qi}">${fmt(q.e)}</div>`;
     card.classList.add('state-correct');
-    cor++; tStats[q.s].c++;
+    cor++;tStats[q.s].c++;
+    playCorrect();
   } else {
     const cl=['A','B','C','D'][q.a];
     fb.className='fb-strip show fb-bad';
-    fb.innerHTML=`<span class="fb-icon">&#10007;</span><span>Incorrect.</span><span class="fb-note">&nbsp;&middot; Correct: ${cl} &mdash; ${fmt(q.o[q.a])}</span>`;
+    fb.innerHTML=`<span class="fb-icon">&#10007;</span><span>Incorrect.</span><span class="fb-note">&nbsp;&middot; Correct: ${cl} &mdash; ${fmt(q.o[q.a])}</span><button class="expl-toggle" onclick="toggleExpl(${qi})">Show explanation</button><div class="expl-box" id="expl${qi}">${fmt(q.e)}</div>`;
     card.classList.add('state-wrong');
     wrg++;
+    playWrong();
   }
-  ans++;
-  updateBoard();
-  if(ans===TOT) setTimeout(showFinal,500);
+  ans++;updateBoard();
+  const next=nextUnanswered(qi+1);
+  if(next>=0)setTimeout(()=>startTimerFor(next),600);
+  else setTimeout(showFinal,600);
 }
 
+function toggleExpl(qi){
+  const box=document.getElementById(`expl${qi}`);
+  if(box){box.classList.toggle('show');
+  const btn=box.previousElementSibling;
+  if(btn)btn.textContent=box.classList.contains('show')?'Hide explanation':'Show explanation';}
+}
+
+// ── SKIP ──
+function skipQ(qi){
+  const card=document.getElementById(`qc${qi}`);
+  if(!card||card.classList.contains('state-correct')||card.classList.contains('state-wrong')||card.classList.contains('state-skipped'))return;
+  doSkip(qi);
+}
+
+function doSkip(qi){
+  const q=shuffled[qi];
+  const ow=document.getElementById(`opts${qi}`);
+  const fb=document.getElementById(`fb${qi}`);
+  const card=document.getElementById(`qc${qi}`);
+  const sb=document.getElementById(`skip${qi}`);
+  clearInterval(timerInterval);
+  ow.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  if(sb)sb.disabled=true;
+  card.classList.remove('active-card');
+  const cl=['A','B','C','D'][q.a];
+  fb.className='fb-strip show fb-skip';
+  fb.innerHTML=`<span class="fb-icon">&#9654;</span><span>Skipped.</span><span class="fb-note">&nbsp;&middot; Answer was: ${cl} &mdash; ${fmt(q.o[q.a])}</span>`;
+  card.classList.add('state-skipped');
+  skp++;ans++;
+  updateBoard();
+  playSkip();
+  const next=nextUnanswered(qi+1);
+  if(next>=0)setTimeout(()=>startTimerFor(next),400);
+  else setTimeout(showFinal,400);
+}
+
+// ── BOARD ──
 function updateBoard(){
   document.getElementById('st-ans').textContent=ans;
   document.getElementById('st-cor').textContent=cor;
   document.getElementById('st-wrg').textContent=wrg;
-  document.getElementById('st-pct').textContent=ans>0?Math.round(cor/ans*100)+'%':'--';
-  document.getElementById('prog-fill').style.width=Math.round(ans/TOT*100)+'%';
-  document.getElementById('prog-txt').textContent=`${ans} / ${TOT}`;
+  document.getElementById('st-skp').textContent=skp;
+  const tot=shuffled.length;
+  const answered_non_skip=cor+wrg;
+  document.getElementById('st-pct').textContent=answered_non_skip>0?Math.round(cor/answered_non_skip*100)+'%':'--';
+  document.getElementById('prog-fill').style.width=Math.round(ans/tot*100)+'%';
+  document.getElementById('prog-txt').textContent=`${ans} / ${tot}`;
 }
 
+// ── FINAL ──
 function showFinal(){
-  const pct=Math.round(cor/TOT*100);
+  clearInterval(timerInterval);
+  renderTimer(0,30);
+  const tot=shuffled.length;
+  const pct=Math.round(cor/(cor+wrg||1)*100);
   document.getElementById('fin-score').textContent=pct+'%';
-  document.getElementById('fin-detail').textContent=`${cor} correct  ·  ${wrg} wrong  ·  ${TOT} total questions`;
-  const g=pct>=90?'Trophy  Exceptional — Expert Level'
-         :pct>=75?'Target  Proficient — Well Done'
-         :pct>=55?'Book  Developing — Keep Practicing'
-         :'Study  Needs Review — Go Through the Basics';
+  document.getElementById('fin-detail').textContent=`${cor} correct · ${wrg} wrong · ${skp} skipped · ${tot} total`;
+  const g=pct>=90?'Exceptional — Expert Level 🏆'
+          :pct>=75?'Proficient — Well Done 🎯'
+          :pct>=55?'Developing — Keep Practicing 📘'
+          :'Needs Review — Study the Basics 📖';
   document.getElementById('fin-grade').textContent=g;
   const bd=document.getElementById('fin-breakdown');
-  bd.innerHTML=Object.entries(tStats).map(([n,v])=>
-    `<div class="bd-cell"><div class="bd-topic">${esc(n)}</div><div class="bd-score">${v.c}<span class="bd-out">/${v.t}</span></div></div>`
-  ).join('');
+  bd.innerHTML=Object.entries(tStats).map(([n,v])=>`<div class="bd-cell"><div class="bd-topic">${esc(n)}</div><div class="bd-score">${v.c}<span class="bd-out">/${v.t}</span></div></div>`).join('');
   const panel=document.getElementById('final-panel');
   panel.style.display='block';
   panel.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── SHARE ──
+function shareResult(){
+  const score=document.getElementById('fin-score').textContent;
+  const detail=document.getElementById('fin-detail').textContent;
+  const grade=document.getElementById('fin-grade').textContent;
+  const text=`HTML Mastery Quiz Result\n${score} — ${grade}\n${detail}\n\nTry it yourself!`;
+  if(navigator.share){
+    navigator.share({title:'HTML Quiz Result',text}).catch(()=>copyText(text));
+  } else {
+    copyText(text);
+  }
+}
+
+function copyText(text){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>showToast());
+  } else {
+    const ta=document.createElement('textarea');
+    ta.value=text;document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);
+    showToast();
+  }
+}
+
+function showToast(){
+  const t=document.getElementById('share-toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
 }
 
 function restartQuiz(){
